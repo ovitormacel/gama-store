@@ -19,5 +19,114 @@ header {
 .logo{
     color: $primary-color;
     font-size: 2.5em;
-    margin-right: 1.2em;
+    margin-right: .8em;
 }
+
+.nav-link{
+    color: $text-mid-dark;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+    display: block;
+    padding: 0.8em 0em;
+    width: 5em;
+    text-align: center;
+    transition: .2s linear;
+
+    &:hover{
+        border-bottom-color: $primary-color;
+        color: $text-color;
+    }
+}
+
+.search-form{
+    margin-left: 1em;
+    position: relative;
+
+    input{
+        background-color: $background-secondary;
+        border: none;
+        padding: .5em 0 .5em 2.4em;
+        border-radius: 2em;
+        width: 18em;
+        transition: .2s linear;
+        color: $text-color;
+
+        &::placeholder{
+            color: $text-mid-dark;
+            font-size: 1.1em;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    .search-btn-icon{
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 110%;
+        width: 2.5em;
+        background-color: transparent;
+        border: none;
+        color: $primary-color;
+    }
+}
+
+.nav-bar-icon{
+    font-size: 1.5em;
+    background-color: transparent;
+    border: none;
+    color: $text-mid-dark;
+    padding: .2em .2em 0 .2em;
+    margin-left: 0em;
+    transition: .2s linear;
+
+    &:hover{
+        color: $text-color;
+        cursor: pointer;
+    }
+}
+
+.profile-link{
+   font-size: 1.2em;
+   background-color: $text-mid-dark;
+   width: 1.8em;
+   height: 1.8em;
+   display: block;
+   box-sizing: border-box;
+   text-align: center;
+   padding-top: .4em;
+   border-radius: 1.8em;
+   color: $background-main;
+   margin-left: .5em;
+}
+
+
+//FOOTER
+footer{
+    background-color: #000;
+
+    .footer-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid $text-dark;
+        padding: 1em 0;
+
+        p{
+            color: $text-dark;
+        }
+        a{
+            color: $primary-color;
+            text-decoration: none;
+        }
+    }
+
+    .footer-bottom ul{
+        display: flex;
+        justify-content: space-around;
+    }
+}
+

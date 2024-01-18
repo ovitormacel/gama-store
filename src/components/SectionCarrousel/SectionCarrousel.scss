@@ -1,0 +1,62 @@
+@import "../../styles/colors.scss";
+
+.section-carrousel{
+    margin-bottom: 3em;
+
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .section-title{
+        color: $text-color;
+        font-size: 1.5em;
+        font-weight: bold;
+    
+        .icon{
+            margin-right: .5em;
+            color: #e25615;
+        }
+    }
+
+    .controllers{
+        display: flex;
+        gap: 1em;
+    
+        .slider-control-btn{
+            border: 2px solid transparent;
+            background-color: $background-dark;
+            width: 2em;
+            height: 2em;
+            padding-top: .2em;
+            box-sizing: border-box;
+            font-size: 1.5em;
+            color: $text-dark;
+            border-radius: .5em;
+            transition: .2s linear;
+            cursor: pointer;
+
+            &.right{
+                transform: rotate(180deg);
+            }
+
+            &:hover{
+                color: $text-mid-dark;
+                border: 2px solid $text-mid-dark;
+            }
+        }
+    }
+}
+
+.carrousel-container{
+    overflow: hidden;
+
+    .carrousel-content{
+        display: flex;
+        gap: 1.5em;
+        transition: .5s ease-in-out;   
+        padding: .2em 0;
+    }
+}

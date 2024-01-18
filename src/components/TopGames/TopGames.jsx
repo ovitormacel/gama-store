@@ -50,7 +50,7 @@ export default function TopGames() {
                     <img src="src/assets/The Last of Us.jpeg" alt="" />
                     <div className="slider-item-infos">
                         <div className="item-infos">
-                            <h2 className="title">The Last of Us Part II</h2>
+                            <h2 className="title">The Last of Us Remastered</h2>
                             <div className="price">
                                 <p className="sale">-50%</p>
                                 <p className="price-value">R$ 249.90</p>

@@ -59,6 +59,23 @@
     }
 }
 
+.slider-controllers{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    span{
+        position: absolute;
+        top: 1em;
+        left: 2.5em;
+        z-index: 1;
+        padding: .4em 1.4em;
+        font-size: 1.2em;
+        box-shadow: 0 0 5px 0 $background-dark;
+    }
+}
+
 .slider-content {
     display: flex;
     transition: transform .4s ease-in-out;

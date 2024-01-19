@@ -65,3 +65,14 @@ body {
     gap: 1em;
     margin-top: 1em;
 }
+
+.section-title{
+    color: $text-color;
+    font-size: 1.5em;
+    font-weight: bold;
+
+    .icon{
+        margin-right: .5em;
+        color: #e25615;
+    }
+}

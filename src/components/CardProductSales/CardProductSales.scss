@@ -1,0 +1,66 @@
+@import "../../styles/colors.scss";
+
+.card-product-sales{
+    overflow: hidden;
+    max-height: 100%;
+    position: relative;
+    border-radius: 1em;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/Marvel\'s\ Spider-Man\ Miles\ Morales.jpeg");
+    background-size: cover;
+    background-position: center;
+    border: 2px solid $background-dark;
+    box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: .8);
+    transition: .3s linear;
+
+    &:hover{
+        cursor: pointer;
+        border-color: $light-color ;
+        box-shadow: 0 0 10px 0 rgba($color: $light-color, $alpha: 1);
+    }
+}
+
+.card-product-sales-image{
+    img{
+        width: 100%;
+    }
+}
+
+.card-product-sales-infos{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba($color: #000000, $alpha: .9), transparent 80%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    box-sizing: border-box;
+
+    .sale{
+        background-color: $light-color;
+        width: 5em;
+        padding: .5em 0;
+        text-align: center;
+        border-radius: .4em;
+        color: $text-color;
+    }
+
+    .card-product-sales-title{
+        color: $text-color;
+        font-weight: bold;
+
+        &.isLarge{
+            font-size: 1.5em;
+        }
+    }
+
+    .price{
+        color: $text-mid-dark;
+        font-weight: bold;
+    }
+
+}

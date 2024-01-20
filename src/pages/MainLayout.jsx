@@ -5,32 +5,46 @@ import { FaSearch, FaHeart, FaShoppingCart, FaRegUser } from "react-icons/fa";
 import "./MainLayout.scss"
 
 import { Link, Outlet } from "react-router-dom";
+import { useState } from "react";
 
 export default function MainLayout() {
+
+    const [openedMenu, setOpenedMenu] = useState(false);
+    
+    const handleBtnMenu = () => {
+        !openedMenu ? setOpenedMenu(true) : setOpenedMenu(false);
+    }
+
     return (
         <>
             <header>
                 <div className="container">
                     <nav className="nav-bar">
                         <div className="left-side">
-                            <ul>
-                                <li><h2 className="logo">G</h2></li>
-                                <li><Link to={"/"} className="nav-link">Início</Link></li>
-                                <li><Link to={"/search"} className="nav-link">Explorar</Link></li>
-                            </ul>
-                            <form className="search-form">
-                                <label htmlFor="search" style={{'display': 'none'}}>Search</label>
-                                <input type="text" name="search" placeholder="Procurar Jogos..."/>
-                                <button type="submit" className="search-btn-icon"><FaSearch /></button>
-                            </form>
+                            <h2 className="logo">G</h2>
+                            <div className={`items-menu ${openedMenu ? 'active' : ''}`}>
+                                <Link to={"/"} className="nav-link" onClick={handleBtnMenu}>Início</Link>
+                                <Link to={"/profile"} className="nav-link" id="profile-nav-link" onClick={handleBtnMenu}>Seu Perfil</Link>
+                                <Link to={"/search"} className="nav-link" onClick={handleBtnMenu}>Explorar</Link>
+                                <form className="search-form">
+                                    <label htmlFor="search" style={{'display': 'none'}}>Search</label>
+                                    <input type="text" name="search" placeholder="Procurar Jogos..."/>
+                                    <button type="submit" className="search-btn-icon"><FaSearch /></button>
+                                </form>
+                            </div>
                         </div>
 
                         <div className="right-side">
                             <ul>
                                 <li><button id="wishlist-icon" className="nav-bar-icon"><FaHeart /></button></li>
                                 <li><button id="cart-icon" className="nav-bar-icon"><FaShoppingCart /></button></li>
+                                <li><Link to={"/profile"} className="profile-link"><FaRegUser /></Link></li>
                                 <li>
-                                    <Link to={"/profile"} className="profile-link"><FaRegUser /></Link>
+                                    <button className="btn-menu-hamb" onClick={handleBtnMenu}>
+                                        <span className="bar bar1"></span>
+                                        <span className="bar bar2"></span>
+                                        <span className="bar bar3"></span>
+                                    </button>
                                 </li>
                             </ul>
                         </div>

@@ -13,6 +13,11 @@ header {
     .left-side, ul{
         display: flex;
         align-items: center;
+
+        .items-menu{
+            display: flex;
+            align-items: center;
+        }
     }
 }
 
@@ -37,6 +42,10 @@ header {
         border-bottom-color: $primary-color;
         color: $text-color;
     }
+}
+
+#profile-nav-link{
+    display: none;
 }
 
 .search-form{
@@ -90,17 +99,78 @@ header {
 }
 
 .profile-link{
-   font-size: 1.2em;
-   background-color: $text-mid-dark;
-   width: 1.8em;
-   height: 1.8em;
-   display: block;
-   box-sizing: border-box;
-   text-align: center;
-   padding-top: .4em;
-   border-radius: 1.8em;
-   color: $background-main;
-   margin-left: .5em;
+    font-size: 1.5em;
+    background-color: transparent;
+    width: 1.8em;
+    height: 1.8em;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: .4em;
+    border-radius: 1.8em;
+    color: $text-mid-dark;
+    margin-left: 0em;
+ }
+
+//HAMBURGUER MENU
+.btn-menu-hamb{
+    height: 2.8em;
+    width: 2.8em;
+    padding: .2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: transparent;
+    border-radius: 3em;
+    border: none;
+    cursor: pointer;
+    margin-left: .5em;
+    align-items: center;
+    position: relative;
+    
+    display: none;
+
+    .bar{
+        display: block;
+        width: 100%;
+        height: 4px;
+        background-color: $text-dark;
+        border-radius: 4px;
+        z-index: 1;
+        transition: .2s linear;
+
+        &.bar1{
+            width: 80%;
+        }
+        &.bar2{
+            width: 100%;
+        }
+        &.bar3{
+            width: 80%;
+        }
+    }
+
+    &::after{
+        content: "";
+        width: 2.8em;
+        height: 2.8em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: $primary-color;
+        border-radius: 3em;
+        opacity: 0;
+        transform: scale(0.0);
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    }
+
+    &:hover .bar{
+        background-color: $background-main;        
+    }
+    &:hover::after{
+        opacity: 1;
+        transform: scale(1.1);
+    }
 }
 
 
@@ -127,6 +197,64 @@ footer{
     .footer-bottom ul{
         display: flex;
         justify-content: space-around;
+    }
+}
+
+
+//TABLETS
+@media screen and (max-width: 768px) {
+    header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 200;
+        height: 3em;
+    }
+
+    //HAMBURGUER MENU
+    .btn-menu-hamb{
+        display: flex;
+    }
+
+    .items-menu{
+        flex-direction: column-reverse;
+        position: fixed;
+        top: 3em;
+        right: 0;
+        background-color: $background-dark;
+        padding: 1em;
+        box-sizing: border-box;
+        border-radius: 0 0 0 2em;
+        box-shadow:  0 0 5px 0 $background-main;
+
+        visibility: hidden;
+        opacity: 0;
+
+        transition: .1s linear;
+
+        &.active{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    
+    .nav-link{
+        border: 2px solid transparent;
+        border-radius: 3em;
+        padding: 0.5em 0em;
+        width: 8em;
+        margin-top: 1em;
+    
+        &:hover{
+            border-bottom-color: transparent;
+            color: $text-color;
+            background-color: $background-secondary;
+        }
+    }
+
+    #profile-nav-link{
+        display: block;
     }
 }
 

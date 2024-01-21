@@ -1,0 +1,71 @@
+@import "/src/styles/colors.scss";
+.main-search{
+    height: 100em;
+    overflow: scroll;
+}
+.search-options-section{
+    position: absolute;
+    top: 3.05em;
+    right: 0;
+    background-color: $background-secondary;
+    width: 25%;
+    height: 100em;
+    z-index: 100;
+    padding: 1.5em 0 0 2em;
+    box-sizing: border-box;
+
+    ul{
+        // background-color: red;
+    }
+
+    .btn-change-search{
+        background-color: transparent;
+        border: 2px solid $text-dark;
+        width: 75%;
+        margin-top: 1em;
+        font-size: .9em;
+        color: $text-color;
+        padding: .5em 0;
+        opacity: .7;
+        border-radius: 10em;
+        position: relative;
+        z-index: 100;
+        transition: .2s linear;
+        text-align: start;
+        padding-left: 2em;
+        
+        &::before{
+            content: '';
+            width: 0%;
+            height: 100%;
+            position: absolute;
+            border-radius: 1em;
+            top: 0;
+            left: 0;
+            background-color: $secondary-color;
+            z-index: -1;
+            transition: .2s linear;
+        }
+
+        &:hover{
+            opacity: 1;
+            cursor: pointer;
+            border: 2px solid $secondary-color;
+            &::before{
+                content: '';
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+.search-result-section{
+    width: 70%;
+
+    .search-results-cards{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+    }
+}

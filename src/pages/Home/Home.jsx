@@ -25,8 +25,6 @@ export default function Home() {
                                 <CardProductSales small={true}/>
                                 <CardProductSales small={true}/>
                                 <CardProductSales small={true}/>
-                                <CardProductSales small={true}/>
-                                <CardProductSales small={true}/>
                             </div>
                         </div>
                     </div>

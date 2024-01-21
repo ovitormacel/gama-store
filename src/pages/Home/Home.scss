@@ -24,9 +24,33 @@
     }
     .cards-sales-grid{
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
         width: 60%;
         gap: 1em;
+    }
+}
+
+//TABLET
+@media screen and (max-width: 768px) { 
+    .cards-sales{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        height: auto;
+        width: 100%;
+    
+        .main-card-sale{
+            height: 40em;
+            width: 100%;
+        }
+        .cards-sales-grid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 40em;
+            width: 100%;
+            gap: 1em;
+        }
     }
 }

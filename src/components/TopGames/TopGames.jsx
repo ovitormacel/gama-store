@@ -48,7 +48,7 @@ export default function TopGames() {
             <div className="slider-content" style={{transform: `translateX(-${slide}00%)`}}>
                 
                 <div className="slider-item">
-                    <img src="src/assets/The Last of Us.jpeg" alt="" />
+                    {/* <img src="src/assets/The Last of Us.jpeg" alt="" /> */}
                     <div className="slider-item-infos">
                         <div className="item-infos">
                             <h2 className="title">The Last of Us Remastered</h2>

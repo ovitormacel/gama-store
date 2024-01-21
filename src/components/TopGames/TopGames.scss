@@ -85,9 +85,13 @@
 .slider-item{
     min-width: 100%;
     height: 38em;
-    background-color: red;
     position: relative;
     overflow: hidden;
+
+    background-image: url('src/assets/The Last of Us.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
     img{
         width: 100%;
@@ -130,6 +134,50 @@
                 }
             }
 
+        }
+    }
+}
+
+
+
+//TABLET
+@media screen and (max-width: 768px){
+    .slider-container{
+        height: 28em;
+        margin-top: 5em;
+    }
+
+    .slider-item{
+        height: 28em;
+    
+        .slider-item-infos{
+            .item-infos{
+                .title{
+                    font-size: 2.3em;
+                }
+    
+                .price{
+                    .sale{
+                        font-size: 1em;
+                    }
+                    .price-value{
+                        font-size: 1.7em;
+                    }
+                }
+
+                .main-actions{
+                    
+                    .btn{
+                        font-size: 1.5em;
+                    
+                        &.btn-more{
+                            font-size: 1em;
+                            height: 1.5em;
+                        }
+                    }
+                }
+    
+            }
         }
     }
 }

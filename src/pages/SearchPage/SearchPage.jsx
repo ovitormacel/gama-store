@@ -6,7 +6,17 @@ export default function SearchPage() {
         <main className="main-search">
             <section className="search-result-section">
                 <div className="container">
-                    <h2 className="section-title">Todos os Jogos (9999)</h2>
+                    <div className="title-container">
+                        <h2 className="section-title">Todos os Jogos (9999)</h2>
+                        <button className="hamb-menu">
+                            <p className="categories-label">Categorias</p>
+                            <div className="bars">
+                                <span className="bar bar1"></span>
+                                <span className="bar bar2"></span>
+                                <span className="bar bar3"></span>
+                            </div>
+                        </button>
+                    </div>
                     <div className="search-results-cards">
                         <CardProduct />
                         <CardProduct />

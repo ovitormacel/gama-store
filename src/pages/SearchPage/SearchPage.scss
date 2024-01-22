@@ -14,6 +14,11 @@
     padding: 1.5em 0 0 2em;
     box-sizing: border-box;
 
+    
+    .section-title{
+        margin-bottom: .4em;
+    }
+
     ul{
         // background-color: red;
     }
@@ -51,9 +56,13 @@
             opacity: 1;
             cursor: pointer;
             border: 2px solid $secondary-color;
+            width: 100%;
+            border-radius: 10em 0 0 10em;
+            font-weight: bold;
             &::before{
                 content: '';
                 width: 100%;
+                border-radius: 1em 0 0 1em;
             }
         }
     }
@@ -61,11 +70,95 @@
 
 
 .search-result-section{
-    width: 70%;
+    width: 75%;
+
+    .title-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .section-title{
+            margin: 1em 0;
+        }
+    
+        .hamb-menu{
+            height: 2.5em;
+            width: 11.5em;
+            display: flex;
+            background-color: transparent;
+            border: none;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            position: relative;
+            padding: .4em;
+            cursor: pointer;
+
+            .categories-label{
+                color: $text-mid-dark;
+                font-size: 1.4em;
+                transition: .2s linear;
+            }
+
+            .bars{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: end;
+                width: 3em;
+                height: 2em;
+                .bar{
+                    transition: .2s linear;
+                    display: block;
+                    background-color: $secondary-color;
+                    height: .3em;
+                    border-radius: 1em;
+    
+                    &.bar1{
+                        width: 80%;
+                    }
+                    &.bar2{
+                        width: 90%;
+                    }
+                    &.bar3{
+                        width: 100%;
+                    }
+                }
+            }
+
+            &::after{
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: linear-gradient(to top, $secondary-color, $primary-color);
+                // background-color: $primary-color;
+                border-radius: 3em;
+                opacity: 0;
+                transform: scale(0.0);
+                transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+            }
+            &:hover::after{
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            &:hover .bar{
+                background-color: $background-main;
+                z-index: 100;
+            }
+            &:hover .categories-label{
+                color: $background-dark;
+                z-index: 200;
+            }
+        }
+    
+    }
 
     .search-results-cards{
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
         gap: 1em;
     }
 }

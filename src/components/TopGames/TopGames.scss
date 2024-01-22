@@ -74,6 +74,12 @@
         font-size: 1.2em;
         box-shadow: 0 0 5px 0 $background-dark;
     }
+
+    .destaques{
+        background: linear-gradient(to bottom, $primary-color, $secondary-color);
+        border-radius: 2em;
+        color: $text-color;
+    }
 }
 
 .slider-content {

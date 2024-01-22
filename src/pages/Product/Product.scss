@@ -1,0 +1,215 @@
+@import "/src/styles/colors.scss";
+
+.background-game-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35em;
+    overflow: hidden;
+    z-index: -1;
+    
+    img{
+        width: 100%;
+    }
+
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, $background-dark 10%, transparent);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.layout-top{
+    display: flex;
+    gap: 3em;
+}
+
+.game-image{
+    width: 22em;
+    margin-top: 5em;
+    border-radius: 1em 1em 1.5em 1.5em;
+    overflow: hidden;
+    position: relative;
+
+    img{
+        width: 100%;
+    }
+
+    .price{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 1.5em 1em;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        z-index: 100;
+
+        .sale{
+            background-color: $light-color;
+            text-align: center;
+            font-size: 1.3em;
+            width: 3.5em;
+            padding: .3em 0;
+            color: $text-color;
+            border-radius: .5em;
+        }
+
+        .price-value{
+            font-size: 1.6em;
+            color: $text-mid-dark;
+        }
+    }
+
+    &::after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba($color: #000000, $alpha: .5) 15%, transparent 30%);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.game-categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+    .category-el{
+        background-color: rgba($color: $text-color, $alpha: .8);
+        text-align: center;
+        padding: .3em 1em;
+        color: $background-main;
+        border-radius: .5em;
+    }
+}
+
+.actions-game{
+    .btn{
+        width: 100%;
+        margin-bottom: .5em;
+        font-size: 1.2em;
+        cursor: pointer;
+        border-radius: .5em;
+    }
+
+    .btn-game-wishlist{
+        background-color: transparent;
+        color: $text-mid-dark;
+        border: 2px solid $text-mid-dark;
+        transition: .2s linear;
+        position: relative;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 0%;
+            opacity: 0;
+            z-index: -1;
+            background: linear-gradient($primary-color, $secondary-color);
+            transition: .2s linear;
+            border-radius: .5em;
+        }
+
+        &:hover{
+            border: 2px solid transparent;
+            color: $background-dark;
+            background-color: transparent;
+        }
+        &:hover::after{
+            height: 100%;
+            opacity: 1;
+        }
+    }
+
+    .btn-game-cart{
+        background-color: $text-mid-dark;
+        border: 2px solid transparent;
+        color: $background-dark;
+        position: relative;
+        
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 0%;
+            opacity: 0;
+            z-index: -1;
+            background-color: $light-color;
+            transition: .2s linear;
+            border-radius: .3em;
+        }
+
+        &:hover{
+            border: 2px solid transparent;
+            color: $text-color;
+            background-color: transparent;
+        }
+        &:hover::after{
+            height: 100%;
+            opacity: 1;
+        }
+    }
+}
+
+
+
+//COL-2
+.game-datails{
+    margin-top: 5em;
+
+    .title-and-launch{
+        padding: 1.5em 0;
+    
+        .title{
+            color: $text-color;
+            font-weight: bold;
+            font-size: 2.5em;
+            text-shadow: 0px 0px 7px #000000;
+        }
+
+        .launch{
+            display: flex;
+            color: rgba($color: $text-color, $alpha: .8);
+            font-size: 1.3em;
+
+            .year{
+                margin-left: .2em;
+            }
+        }
+    }
+
+    .game-description{
+        color: $text-mid-dark;
+        width: 50em;
+        line-height: 1.4em;
+
+        margin-top: 2em;
+        .section-title{
+            margin-bottom: .5em;
+        }
+    }
+
+    .section-screenshots{
+        margin-top: 4em;
+
+        .section-title{
+            margin-bottom: 1em;
+        }
+    }
+}

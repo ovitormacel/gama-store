@@ -40,7 +40,7 @@ export default function TopGames() {
     return (
         <div className="slider-container" ref={sliderContainer}>
             <div className="slider-controllers">
-                <span className="btn btn-more">Destaques</span>
+                <span className="destaques">Destaques</span>
                 <button className="slider-control-btn left" onClick={() => handleBtnSlider("left")}><FaChevronCircleLeft/></button>
                 <button className="slider-control-btn right" onClick={() => handleBtnSlider("right")}><FaChevronCircleLeft/></button>
             </div>

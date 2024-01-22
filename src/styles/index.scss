@@ -76,3 +76,22 @@ body {
         color: #e25615;
     }
 }
+
+.close-btn{
+    height: 3em;
+    width: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &::after{
+        display: inline-block;
+        content: "\00d7";
+        font-size: 4em;
+        height: 1.4em;
+        color: $secondary-color;
+    }
+}

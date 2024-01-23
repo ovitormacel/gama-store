@@ -1,8 +1,30 @@
+import { useRef, useState } from "react";
 import "./Product.scss";
 
 import { FaCartPlus, FaHeart } from "react-icons/fa";
 
 export default function Product() {
+    const screenshotsList = [
+        "/src/assets/screenshot-01.jpg",
+        "/src/assets/screenshot-02.jpg",
+        "/src/assets/screenshot-03.jpg"
+    ]
+
+    const screenshotsListElement = useRef(null);
+
+    const [selectedScreenshot, setSelectedScreenshot] = useState(screenshotsList[0]);
+    
+    const handleChangeScreenshot = (e) => {
+        screenshotsListElement.current.childNodes.forEach((el) => {
+            el.classList.remove('selected');
+        });
+
+        const number = e.target.dataset.number;
+        e.target.classList.add('selected');
+
+        setSelectedScreenshot(screenshotsList[number]);
+    }
+
     return(
         <main>
             <div className="background-game-image">
@@ -42,6 +64,10 @@ export default function Product() {
                                         <div className="year"> 2020</div>
                                     </div>
                                 </div>
+
+                                <div className="age">
+                                    <img src="/src/assets/18-rating.png" alt="" />
+                                </div>
                             </div>
 
                             <div className="game-description">
@@ -52,19 +78,19 @@ export default function Product() {
                             <div className="section-screenshots">
                                 <h2 className="section-title">Capturas de Tela</h2>
                                 <div className="main-screenshot">
-                                    <img src="/src/assets/screenshot-02.jpg" alt="" />
+                                    <img src={selectedScreenshot} alt="" />
                                 </div>
 
-                                <div className="screenshots-list">
-                                    <div className="screenshot-item">
+                                <div className="screenshots-list" ref={screenshotsListElement}>
+                                    <button className="screenshot-item selected" data-number="0" onClick={handleChangeScreenshot}>
                                         <img src="/src/assets/screenshot-01.jpg" alt="" />
-                                    </div>
-                                    <div className="screenshot-item">
+                                    </button>
+                                    <button className="screenshot-item" data-number="1" onClick={handleChangeScreenshot}>
                                         <img src="/src/assets/screenshot-02.jpg" alt="" />
-                                    </div>
-                                    <div className="screenshot-item">
+                                    </button>
+                                    <button className="screenshot-item" data-number="2" onClick={handleChangeScreenshot}>
                                         <img src="/src/assets/screenshot-03.jpg" alt="" />
-                                    </div>
+                                    </button>
                                 </div>
                             </div>
                         </section>

@@ -1,9 +1,32 @@
-import { useRef, useState } from "react";
+//HOOKS
+import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
+
+//STYLES
 import "./Product.scss";
 
+//COMPONENTS
 import { FaCartPlus, FaHeart } from "react-icons/fa";
+import FetchGames from "../../hooks/FetchGames";
 
 export default function Product() {
+    //REQUEST API
+    const { productId } = useParams();
+
+    const getGame = async () => {
+        const url = 'https://api.igdb.com/v4/games/';
+        const content = `fields name; where id = ${productId}`;
+
+        const result = await FetchGames(url, '');
+    
+        console.log(result);
+    }
+
+    useEffect(() => {
+        getGame();
+    }, []);
+
+    //CHANGE SCREENSHOTS
     const screenshotsList = [
         "/src/assets/screenshot-01.jpg",
         "/src/assets/screenshot-02.jpg",
@@ -42,14 +65,16 @@ export default function Product() {
                                     <p className="price-value">R$ 249,90</p>
                                 </div>
                             </div>
-                            <div className="game-categories">
-                                <div className="category-el action">Ação</div>
-                                <div className="category-el adventure">Aventura</div>
-                                <div className="category-el shooter">Atirador</div>
-                            </div>
-                            <div className="actions-game">
-                                <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
-                                <button className="btn btn-game-cart"><FaCartPlus /> Adicionar ao Carrinho</button>
+                            <div className="categories-and-actions">
+                                <div className="game-categories">
+                                    <div className="category-el action">Ação</div>
+                                    <div className="category-el adventure">Aventura</div>
+                                    <div className="category-el shooter">Atirador</div>
+                                </div>
+                                <div className="actions-game">
+                                    <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
+                                    <button className="btn btn-game-cart"><FaCartPlus /> Adicionar ao Carrinho</button>
+                                </div>
                             </div>
                         </section>
                     </div>

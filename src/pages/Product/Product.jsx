@@ -1,30 +1,54 @@
 //HOOKS
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetchGames from "../../hooks/useFetchGames.js";
 
 //STYLES
 import "./Product.scss";
 
 //COMPONENTS
 import { FaCartPlus, FaHeart } from "react-icons/fa";
-import FetchGames from "../../hooks/FetchGames";
 
 export default function Product() {
+    //GAME STATES
+    const [gameBackgroundImage, setGameBackgroundImage] = useState("");
+    const [gameCover, setGameCover] = useState("");
+    const [gameGenres, setGameGenres] = useState([]);
+    const [gameTitle, setGameTitle] = useState("");
+    const [gameDeveloper, setGameDeveloper] = useState("");
+    const [gameYear, setGameYear] = useState("");
+    const [gameAge, setGameAge] = useState("");
+    const [gameDescription, setGameDescription] = useState("");
+
+
+
+    const updateStates = (gameObject) => {
+        setGameBackgroundImage(gameObject.background_image_additional);
+        setGameCover(gameObject.background_image);
+        setGameGenres(gameObject.genres);
+        setGameTitle(gameObject.name);
+        setGameDeveloper(gameObject.developers[0].name);
+        setGameYear(gameObject.released);
+        setGameAge(gameObject.esrb_rating.name);
+        setGameDescription(gameObject.description_raw);
+    }
+
+
     //REQUEST API
     const { productId } = useParams();
-
     const getGame = async () => {
-        const url = 'https://api.igdb.com/v4/games/';
-        const content = `fields name; where id = ${productId}`;
+        const url = `games/${productId}`;
 
-        const result = await FetchGames(url, '');
+        const result = await useFetchGames(url);
     
         console.log(result);
+        updateStates(result);
     }
 
     useEffect(() => {
         getGame();
     }, []);
+
 
     //CHANGE SCREENSHOTS
     const screenshotsList = [
@@ -51,7 +75,7 @@ export default function Product() {
     return(
         <main>
             <div className="background-game-image">
-                <img src="/src/assets/screenshot-02.jpg" alt="" />
+                <img src={gameBackgroundImage} alt={gameTitle} />
             </div>   
             <div className="container">
 
@@ -59,7 +83,7 @@ export default function Product() {
                     <div className="col-1">
                         <section className="game-general-infos">
                             <div className="game-image">
-                                <img src="/src/assets/The Last of Us Part II (2020)capa.jpeg" alt="" />
+                                <img src={gameCover} alt={`Capa ${gameTitle}`} />
                                 <div className="price">
                                     <p className="sale">-50%</p>
                                     <p className="price-value">R$ 249,90</p>
@@ -67,9 +91,11 @@ export default function Product() {
                             </div>
                             <div className="categories-and-actions">
                                 <div className="game-categories">
-                                    <div className="category-el action">Ação</div>
-                                    <div className="category-el adventure">Aventura</div>
-                                    <div className="category-el shooter">Atirador</div>
+                                    {gameGenres.map((genre => (
+                                        <div key={genre.id} className="category-el">
+                                            {genre.name}
+                                        </div>
+                                    )))}
                                 </div>
                                 <div className="actions-game">
                                     <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
@@ -83,10 +109,10 @@ export default function Product() {
                         <section className="game-datails">
                             <div className="title-and-age">
                                 <div className="title-and-launch">
-                                    <div className="title">The Last of Us Part II</div>
+                                    <div className="title">{gameTitle}</div>
                                     <div className="launch">
-                                        <div className="enterprise">Naughty Dog • </div>
-                                        <div className="year"> 2020</div>
+                                        <div className="enterprise">{gameDeveloper} • </div>
+                                        <div className="year"> {gameYear}</div>
                                     </div>
                                 </div>
 
@@ -97,7 +123,7 @@ export default function Product() {
 
                             <div className="game-description">
                                 <h2 className="section-title">Descrição</h2>
-                                <p>The Last of Us Part II is an action-adventure game set five years after the events of The Last of Us. The player traverses post-apocalyptic environments such as buildings and forests to advance the story. They can use firearms, improvised weapons, and stealth to defend against hostile humans and cannibalistic creatures infected by a mutated strain of the Cordyceps fungus. The game intermittently switches control between Ellie and Abby, and also briefly Joel in the opening sequence. The nimble nature of the player character introduces platforming elements, allowing the player to jump and climb to traverse environments and gain advantages during combat.</p>
+                                <p>{gameDescription}</p>
                             </div>
 
                             <div className="section-screenshots">

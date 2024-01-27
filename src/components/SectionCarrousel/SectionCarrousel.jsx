@@ -2,10 +2,31 @@ import { FaChevronCircleLeft, FaFire} from "react-icons/fa";
 import CardProduct from "../CardProduct/CardProduct";
 import "./SectionCarrousel.scss";
 
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import useFetchGames from "../../hooks/useFetchGames";
 
-export default function SectionCarrousel({category}) {
+export default function SectionCarrousel({category, categoryId}) {
 
+    //FETCH GAMES TO API
+    const [gamesList, setGamesList] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    const changeStates = (result) => {
+        setGamesList(result);
+        setLoading(false);
+    }
+
+    const getGames = async() => {
+        const result = await useFetchGames("games", `genres=${categoryId}`);
+
+        changeStates(result.results)
+    }
+
+    useEffect(() => {
+        getGames();
+    }, [])
+
+    //MOVE CARROUSEL
     const [carrouselTranslate, setCarrouselTranslate] = useState(4.5);
 
     const handleBtnSlider = (side) => {
@@ -38,16 +59,9 @@ export default function SectionCarrousel({category}) {
 
                 <div className="carrousel-content" style={{transform: `translateX(${carrouselTranslate}em)`}}>
 
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
-                    <CardProduct />
+                    {gamesList.map((game) => (
+                        <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image}/>
+                    ))}
                     
 
                 </div>

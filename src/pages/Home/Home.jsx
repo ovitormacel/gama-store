@@ -31,8 +31,8 @@ export default function Home() {
                 </div>
             </section>
 
-            <SectionCarrousel category="Ação" />
-            <SectionCarrousel category="Crime & Mistério" />
+            <SectionCarrousel category="Action" categoryId='action'/>
+            <SectionCarrousel category="Arcade" categoryId='arcade'/>
         </main>
     )
 }

@@ -2,22 +2,21 @@
 
 .card-product{
     display: block;
-    min-width: 13em;
+    min-width: 20em;
 }
 
 .card-product-image{
     overflow: hidden;
-    height: 20em;
+    height: 12em;
+    width: 20em;
     border: 2px solid $background-dark;
     border-radius: 1em;
     position: relative;
     box-sizing: border-box;
     box-shadow: 0 0 5px 0 rgba($color: #000000, $alpha: 0.3);
 
-    img{
-        width: 100%;
-        transition: .2s ease-in-out;
-    }
+    background-size: cover;
+    background-position: center;
 
     .card-product-heart{
         position: absolute;

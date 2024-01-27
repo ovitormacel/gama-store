@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 import "./CardProduct.scss"
 
-export default function CardProduct(){
+export default function CardProduct({id, name, background}){
     return (
-        <article className="card-product">
-            <div className="card-product-image">
+        <article className={`card-product`}>
+            <div className={`card-product-image ${id ? 'loading' : ''}`} style={{backgroundImage: `url(${background})`}}>
                 <button className="card-product-heart"><FaHeart/></button>
-                <img src="src/assets/Marvel's Spider-Man Miles Morales.jpeg" alt="Capa - Spider Man Miles Morales" />
-                <Link to={'/search/001'} className="btn btn-more"><FaEye /> Ver mais</Link>
+
+                <Link to={`/search/${id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
             </div>
             <div className="card-product-infos">
-                <p className="card-product-title">Spider Man Miles Morales</p>
+                <p className="card-product-title">{name}</p>
                 <div className="card-product-price">
                     <p className="sale">-50%</p>
                     <p className="price">R$ 999,99</p>

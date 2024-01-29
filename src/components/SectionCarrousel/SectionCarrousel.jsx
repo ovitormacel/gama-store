@@ -3,22 +3,23 @@ import CardProduct from "../CardProduct/CardProduct";
 import "./SectionCarrousel.scss";
 
 import { useEffect, useState } from "react";
-import useFetchGames from "../../hooks/useFetchGames";
+import { getGameByGenre } from "../../hooks/useFetchGames";
+
 
 export default function SectionCarrousel({category, categoryId}) {
 
     //FETCH GAMES TO API
+    //States
     const [gamesList, setGamesList] = useState([]);
-    const [loading, setLoading] = useState(true);
     
+    //Update States
     const changeStates = (result) => {
         setGamesList(result);
-        setLoading(false);
     }
 
+    //Use a Hook
     const getGames = async() => {
-        const result = await useFetchGames("games", `genres=${categoryId}`);
-
+        const result = await getGameByGenre(categoryId);
         changeStates(result.results)
     }
 
@@ -59,10 +60,11 @@ export default function SectionCarrousel({category, categoryId}) {
 
                 <div className="carrousel-content" style={{transform: `translateX(${carrouselTranslate}em)`}}>
 
-                    {gamesList.map((game) => (
+                    {gamesList.length > 0 ? gamesList.map((game) => (
                         <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image}/>
-                    ))}
-                    
+                    )) : (
+                        <CardProduct />
+                    )}
 
                 </div>
 

@@ -28,11 +28,6 @@
             margin-bottom: .4em;
         }
     }
-    
-
-    ul{
-        // background-color: red;
-    }
 
     .btn-change-search{
         background-color: transparent;
@@ -171,7 +166,7 @@
 
     .search-results-cards{
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(13em, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
         gap: 1em;
     }
 }

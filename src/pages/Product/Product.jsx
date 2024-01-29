@@ -1,7 +1,7 @@
 //HOOKS
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import useFetchGames from "../../hooks/useFetchGames.js";
+
 
 //COMPONENTS
 import { FaCartPlus, FaHeart } from "react-icons/fa";
@@ -9,6 +9,7 @@ import { FaCartPlus, FaHeart } from "react-icons/fa";
 //STYLES
 import "./Product.scss";
 import ProductScreenshots from "../../components/ProductScreenshots/ProductScreenshots.jsx";
+import { getSingleGame } from "../../hooks/useFetchGames.js";
 
 
 export default function Product() {
@@ -39,16 +40,9 @@ export default function Product() {
     const { productId } = useParams();
 
     const getGame = async () => {
-        try {
-            const url = `games/${productId}`;
-            const result = await useFetchGames(url);
-            
-            console.log(result);
-            updateState(result);
+        const result = await getSingleGame(productId);
         
-        } catch (error) {
-            console.log(error.message);
-        }
+        updateState(result);
     }
 
     useEffect(() => {

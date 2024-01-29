@@ -1,9 +1,32 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import CardProduct from "../../components/CardProduct/CardProduct"
 import "./SearchPage.scss"
+import { useParams } from "react-router-dom";
+
 
 export default function SearchPage() {
 
+    const [searchedGames, setSearchedGames] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    //GET SEARCHED GAMES
+    const {searchQuery} = useParams();
+
+    const getSearchedGames = async() => {
+        setLoading(true);
+        const result = await useFetchGames('games', `search=${searchQuery}`)
+
+        console.log(result.results);
+
+        setSearchedGames(result.results);
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        getSearchedGames();
+    }, [searchQuery])
+
+    //Categories Menu
     const [openMenu, setOpenMenu] = useState(false);
 
     const handleHambMenuButton = () => {
@@ -27,6 +50,11 @@ export default function SearchPage() {
                         </button>
                     </div>
                     <div className="search-results-cards">
+                        {searchedGames.map((game) => (
+                            <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image}/>
+                        ))}
+                        
+                        {/* <CardProduct />
                         <CardProduct />
                         <CardProduct />
                         <CardProduct />
@@ -37,8 +65,7 @@ export default function SearchPage() {
                         <CardProduct />
                         <CardProduct />
                         <CardProduct />
-                        <CardProduct />
-                        <CardProduct />
+                        <CardProduct /> */}
                     </div>
                 </div>
             </section>

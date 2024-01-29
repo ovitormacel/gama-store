@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./ProductScreenshots.scss";
-import useFetchGames from "../../hooks/useFetchGames";
+
 
 export default function ProductScreenshots({gameId}){
 //FETCH SCREENSHOTS TO API
@@ -19,15 +19,15 @@ export default function ProductScreenshots({gameId}){
 
     }
     const getScreenshots = async () => {
-        try {
-            const url = `games/${gameId}/screenshots`;
-            const result = await useFetchGames(url);
+        // try {
+        //     const url = `games/${gameId}/screenshots`;
+        //     const result = await useFetchGames(url);
 
-            updateState(result.results);
+        //     updateState(result.results);
         
-        } catch (error) {
-            console.log(error.message);
-        }
+        // } catch (error) {
+        //     console.log(error.message);
+        // }
     }
 
     useEffect(() => {

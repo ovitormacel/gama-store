@@ -4,11 +4,25 @@ import { FaSearch, FaHeart, FaShoppingCart, FaRegUser } from "react-icons/fa";
 //STYLES
 import "./MainLayout.scss"
 
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
+
 
 export default function MainLayout() {
 
+    const navigate = useNavigate();
+
+    //SEARCH
+    const handleSearchForm = (event) => {
+        event.preventDefault();
+
+        const searchQuery = event.target[0].value;
+
+        navigate(`/search/${searchQuery}`, );
+    }
+
+
+    //OPEN HAMBURGUER MENU
     const [openedMenu, setOpenedMenu] = useState(false);
     
     const handleBtnMenu = () => {
@@ -25,8 +39,8 @@ export default function MainLayout() {
                             <div className={`items-menu ${openedMenu ? 'active' : ''}`}>
                                 <Link to={"/"} className="nav-link" onClick={handleBtnMenu}>Início</Link>
                                 <Link to={"/profile"} className="nav-link" id="profile-nav-link" onClick={handleBtnMenu}>Seu Perfil</Link>
-                                <Link to={"/search"} className="nav-link" onClick={handleBtnMenu}>Explorar</Link>
-                                <form className="search-form">
+                                <Link to={"/search/all"} className="nav-link" onClick={handleBtnMenu}>Explorar</Link>
+                                <form className="search-form" onSubmit={handleSearchForm}>
                                     <label htmlFor="search" style={{'display': 'none'}}>Search</label>
                                     <input type="text" name="search" placeholder="Procurar Jogos..."/>
                                     <button type="submit" className="search-btn-icon"><FaSearch /></button>

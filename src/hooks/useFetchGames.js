@@ -1,10 +1,8 @@
 import {authorization} from "../utils/authorizationAPI.js"
 
-export const useFetchGames = async (url, query = '') => {
+export const fetchGames = async (url, query = '') => {
 
-    const apiURL = "https://api.rawg.io/api/"
-
-    const response = await fetch(`${apiURL}${url}?${query}&key=${authorization}`, {
+    const response = await fetch(`https://api.rawg.io/api/${url}?${query}&key=${authorization}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -16,4 +14,14 @@ export const useFetchGames = async (url, query = '') => {
     return convert;
 }
 
-export default useFetchGames;
+export const getGameByGenre = async(genre) => {
+    const result = await fetchGames('games', `genres=${genre}`);
+
+    return result;
+}
+
+export const getSingleGame = async(gameId) => {
+    const result = await fetchGames(`games/${gameId}`);
+
+    return result;
+}

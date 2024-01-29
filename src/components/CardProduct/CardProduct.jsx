@@ -6,10 +6,10 @@ import "./CardProduct.scss"
 export default function CardProduct({id, name, background}){
     return (
         <article className={`card-product`}>
-            <div className={`card-product-image ${id ? 'loading' : ''}`} style={{backgroundImage: `url(${background})`}}>
+            <div className={`card-product-image loading`} style={{backgroundImage: `${background ? `url(${background})` : ''}`}}>
                 <button className="card-product-heart"><FaHeart/></button>
 
-                <Link to={`/search/${id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
+                <Link to={`/product/${id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
             </div>
             <div className="card-product-infos">
                 <p className="card-product-title">{name}</p>

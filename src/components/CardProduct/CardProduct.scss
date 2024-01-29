@@ -1,5 +1,22 @@
 @import "../../styles/colors.scss";
 
+//LOADING
+.loading{
+    color: transparent;
+    border-radius: .5em;
+    animation: loading 0.67s ease infinite alternate;
+}
+
+//ANIMATION
+@keyframes loading {
+    0% {
+        background-color: $background-main;
+    }
+    100% {
+        background-color: $background-secondary;
+    }
+}
+
 .card-product{
     display: block;
     min-width: 20em;
@@ -17,6 +34,12 @@
 
     background-size: cover;
     background-position: center;
+
+    &.loading{
+        color: transparent;
+        border-radius: .5em;
+        animation: loading 0.67s ease infinite alternate;
+    }
 
     .card-product-heart{
         position: absolute;

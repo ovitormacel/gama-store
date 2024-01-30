@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./ProductScreenshots.scss";
+import { getAListOfScreenshots } from "../../hooks/useFetchGames";
 
 
 export default function ProductScreenshots({gameId}){
@@ -18,16 +19,11 @@ export default function ProductScreenshots({gameId}){
         setSelectedScreenshot(imagesArray[0]);
 
     }
-    const getScreenshots = async () => {
-        // try {
-        //     const url = `games/${gameId}/screenshots`;
-        //     const result = await useFetchGames(url);
 
-        //     updateState(result.results);
+    const getScreenshots = async () => {
+            const result = await getAListOfScreenshots(gameId);
+            updateState(result.results);
         
-        // } catch (error) {
-        //     console.log(error.message);
-        // }
     }
 
     useEffect(() => {

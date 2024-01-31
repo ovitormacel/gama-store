@@ -3,7 +3,7 @@ import CardProduct from "../CardProduct/CardProduct";
 import "./SectionCarrousel.scss";
 
 import { useEffect, useState } from "react";
-import { getGameByGenre } from "../../hooks/useFetchGames";
+import { getGameByGenre, getPopularGames } from "../../hooks/useFetchGames";
 
 
 export default function SectionCarrousel({category, categoryId}) {
@@ -19,8 +19,13 @@ export default function SectionCarrousel({category, categoryId}) {
 
     //Use a Hook
     const getGames = async() => {
-        const result = await getGameByGenre(categoryId);
-        changeStates(result.results)
+        if(categoryId == 'popular'){
+            const result = await getPopularGames()
+            changeStates(result.results)
+        } else {
+            const result = await getGameByGenre(categoryId);
+            changeStates(result.results);
+        }
     }
 
     useEffect(() => {

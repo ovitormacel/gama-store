@@ -47,6 +47,14 @@ export const getAllGames = async() => {
     return result;
 }
 
+//POPULAR GAMES
+export const getPopularGames = async(query = '') => {
+    
+    const result = await fetchGames(`games/lists/greatest`, `${query}`);
+
+    return result;
+}
+
 //SCREENSHOTS
 export const getAListOfScreenshots = async(gameId) => {
     const result = await fetchGames(`games/${gameId}/screenshots`);

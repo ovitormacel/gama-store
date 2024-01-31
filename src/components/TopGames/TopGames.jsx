@@ -3,10 +3,37 @@ import "./TopGames.scss"
 
 //ICONS
 import { FaRegHeart, FaEye, FaChevronCircleLeft } from "react-icons/fa";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getPopularGames, getSingleGame } from "../../hooks/useFetchGames";
 
 export default function TopGames() {
 
+    //Games
+    const [topGamesList, setTopGamesList] = useState();
+    const [loading, setLoading] = useState(true);
+
+    const updateStates = (games) => {
+        console.log(games)
+        setTopGamesList(games)
+        setLoading(false);
+    }
+
+    const getTopGames = async() => {
+        setLoading(true);
+
+        const games = [];
+        const result = await getPopularGames();
+
+            
+    
+        updateStates(result.results)
+    }
+
+    useEffect(() => {
+        getTopGames();
+    }, [])
+
+    //Move Slider
     const sliderContainer = useRef(null)
     const [slide, setSlide] = useState(0);
 
@@ -22,11 +49,11 @@ export default function TopGames() {
                 break;
 
             case "right":
-                if(slide != 1){
+                if(slide != 3){
                     setSlide((state) => state + 1);
                     sliderContainer.current.style.animation="blinkContainer 1s"
                 }else{
-                    setSlide(1);
+                    setSlide(0);
                 }
 
                 break;
@@ -47,39 +74,23 @@ export default function TopGames() {
             
             <div className="slider-content" style={{transform: `translateX(-${slide}00%)`}}>
                 
-                <div className="slider-item">
-                    {/* <img src="src/assets/The Last of Us.jpeg" alt="" /> */}
-                    <div className="slider-item-infos">
-                        <div className="item-infos">
-                            <h2 className="title">The Last of Us Remastered</h2>
-                            <div className="price">
-                                <p className="sale">-50%</p>
-                                <p className="price-value">R$ 249.90</p>
-                            </div>
-                            <div className="main-actions">
-                                <Link to={"search/01"} className="btn btn-more"><FaEye /> Ver mais</Link>
-                                <button className="btn btn-blank"><FaRegHeart /></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="slider-item">
-                    <img src="src/assets/God of War.jpeg" alt="" />
-                    <div className="slider-item-infos">
-                        <div className="item-infos">
-                            <h2 className="title">God of War 2018</h2>
-                            <div className="price">
-                                <p className="sale">-60%</p>
-                                <p className="price-value">R$ 98.90</p>
-                            </div>
-                            <div className="main-actions">
-                                <Link to={"search/01"} className="btn btn-more"><FaEye /> Ver mais</Link>
-                                <button className="btn btn-blank"><FaRegHeart /></button>
+                {!loading ? topGamesList.map((game) => (
+                    <div key={game.id} className="slider-item" style={{backgroundImage : `url(${game.background_image})`}}>
+                        <div className="slider-item-infos">
+                            <div className="item-infos">
+                                <h2 className="title">{game.name}</h2>
+                                <div className="price">
+                                    <p className="sale">-50%</p>
+                                    <p className="price-value">R$ 249.90</p>
+                                </div>
+                                <div className="main-actions">
+                                    <Link to={`product/${game.id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
+                                    <button className="btn btn-blank"><FaRegHeart /></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                )) : ''}
             
             </div>
         

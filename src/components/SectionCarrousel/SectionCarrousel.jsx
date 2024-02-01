@@ -20,7 +20,7 @@ export default function SectionCarrousel({category, categoryId}) {
     //Use a Hook
     const getGames = async() => {
         if(categoryId == 'popular'){
-            const result = await getPopularGames()
+            const result = await getPopularGames('year=2023')
             changeStates(result.results)
         } else {
             const result = await getGameByGenre(categoryId);

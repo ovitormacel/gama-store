@@ -1,0 +1,11 @@
+@import "/src/styles/colors.scss";
+
+.section-title{
+    margin: 1em 0;
+}
+
+.dashboard-cards{
+    display: flex;
+    justify-content: space-between;
+    gap: 3em;
+}

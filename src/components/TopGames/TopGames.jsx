@@ -22,7 +22,7 @@ export default function TopGames() {
         setLoading(true);
 
         const games = [];
-        const result = await getPopularGames();
+        const result = await getPopularGames('year=2023');
 
             
     

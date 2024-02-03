@@ -9,3 +9,41 @@
     justify-content: space-between;
     gap: 3em;
 }
+
+.columns{
+    display: flex;
+    gap: 4em;
+    margin: 2em 0 6em 0;
+
+    .profile-recents{
+        width: 50%;
+    }
+    .profile-payments{
+        width: 50%;
+
+        .profile-payment-list{
+            display: flex;
+            flex-direction: column;
+
+            .add-method{
+                border: 0;
+                cursor: pointer;
+                padding: 0.6em;
+                width: auto;
+                align-self: flex-end;
+    
+                &:hover{
+                    padding: .6em .6em;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+.section-title-light{
+    color: $text-color;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 1em;
+}

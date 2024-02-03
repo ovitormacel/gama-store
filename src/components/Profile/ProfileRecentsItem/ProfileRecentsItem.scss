@@ -1,0 +1,40 @@
+@import "/src/styles/colors.scss";
+
+.profile-recents-item{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+
+    .item-image{
+        width: 18em;
+        height: 10em;
+        background-size: cover;
+        background-position: center;
+        border: 2px solid $background-dark;
+        border-radius: 1em;
+    }
+
+    &:hover{
+        .item-image{
+            border-color: $light-color;
+            box-shadow: 0 0 5px 0 $light-color;
+        }
+    }
+
+    .item-infos{
+        .item-title{
+            color: $text-color;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .item-date{
+            color: $text-mid-dark;
+            margin: .8em 0 1em 0;
+        }
+        .btn-more{
+            padding: .8em;
+            font-size: 1.2em;
+        }
+    }
+}

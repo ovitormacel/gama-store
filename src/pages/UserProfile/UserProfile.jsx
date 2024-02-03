@@ -20,7 +20,7 @@ export default function UserProfile() {
                 <div className="container">
                     <div className="profile-header-infos">
                         <div className="profile-photo">
-                            <div className="photo" style={{backgroundImage : `url("https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fi.pinimg.com%2F736x%2F68%2Fd0%2F43%2F68d0438c1f10d5d8759cceb1c294050b.jpg&sp=1706794137T5ccc8a4bf7443c77b67c6ae5e610a82528766653fef7392c34fc04f14adc812e")`}}></div>
+                            <div className="photo" style={{backgroundImage : `url("https://i.pinimg.com/564x/b4/a1/1f/b4a11f067a4d7a1a085817985bcf55db.jpg")`}}></div>
                         </div>
                         <div className="profile-name">
                             <p className="name">Personal Name</p>

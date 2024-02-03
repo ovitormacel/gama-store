@@ -10,6 +10,7 @@ import Product from "./pages/Product/Product";
 import Dashboard from "./pages/UserProfile/profile pages/Dashboard/Dashboard";
 import Library from "./pages/UserProfile/profile pages/Library/LIbrary";
 import Settings from "./pages/UserProfile/profile pages/Settings/Settings";
+import NewPaymentMethod from "./pages/UserProfile/profile pages/NewPaymentMethod/NewPaymentMethod";
 
 const router = createBrowserRouter([
     { 
@@ -23,7 +24,8 @@ const router = createBrowserRouter([
             children: [
                 {index: true, element: <Dashboard />},
                 {path: "library", element: <Library />},
-                {path: "settings", element: <Settings />}
+                {path: "settings", element: <Settings />},
+                {path: "new-payment", element: <NewPaymentMethod />}
             ]}
         ]
     }

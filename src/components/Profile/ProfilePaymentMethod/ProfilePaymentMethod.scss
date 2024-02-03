@@ -1,0 +1,32 @@
+@import "/src/styles/colors.scss";
+
+.profile-payment-method{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px solid $text-dark;
+    margin-bottom: .5em;
+    padding: .5em 0;
+
+    .icon-and-number{
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    
+        .payment-icon{
+            color: $primary-color;
+            font-size: 2em;
+        }
+        .payment-number{
+            color: $text-mid-dark;
+            font-size: 1.2em;
+        }
+    }
+
+    .payment-edit-menu{
+        background-color: transparent;
+        border: none;
+        font-size: 1.2em;
+        color: $text-mid-dark;
+    }
+}

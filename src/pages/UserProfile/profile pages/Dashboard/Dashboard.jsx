@@ -1,11 +1,13 @@
 //ComponentS
 import { IoGameController, IoLibrary } from "react-icons/io5";
-import { FaEye, FaHeart, FaPen, FaWallet } from "react-icons/fa";
+import { FaEye, FaHeart, FaPen, FaWallet, FaPlus } from "react-icons/fa";
 import CardDashboard from "../../../../components/Profile/CardDashboard/CardDashboard";
 import { Link } from "react-router-dom";
 
 //Styles
 import "./Dashboard.scss";
+import { ProfileRecentsItem } from "../../../../components/Profile/ProfileRecentsItem/ProfileRecentsItem";
+import { ProfilePaymentMethod } from "../../../../components/Profile/ProfilePaymentMethod/ProfilePaymentMethod";
 
 export default function Dashboard() {
     return (
@@ -22,34 +24,18 @@ export default function Dashboard() {
                     <section className="profile-recents">
                         <h4 className="section-title-light">Recently Acquired</h4>
                         <div className="profile-recents-list">
-                            <div className="profile-recents-item">
-                                <div className="item-image"></div>
-                                <div className="item-infos">
-                                    <p className="item-title">Spider Man Miles Morales</p>
-                                    <p className="item-date">Acquired in: February 9, 2023</p>
-                                    <Link to={'product/25465'} className="btn btn-more"><FaEye /> Ver Mais</Link>
-                                </div>
-                            </div>
-
-                            <div className="profile-recents-item">
-                                <div className="item-image"></div>
-                                <div className="item-infos">
-                                    <p className="item-title">Spider Man Miles Morales</p>
-                                    <p className="item-date">Acquired in: February 9, 2023</p>
-                                    <Link to={'product/25465'} className="btn btn-more"><FaEye /> Ver Mais</Link>
-                                </div>
-                            </div>
+                            <ProfileRecentsItem />
+                            <ProfileRecentsItem />
+                            <ProfileRecentsItem />
                         </div>
                     </section>
 
                     <section className="profile-payments">
                     <h4 className="section-title-light">Payment Methods</h4>
                         <div className="profile-payment-list">
-                            <div className="profile-payment-method">
-                                <span className="payment-icon"><FaWallet /></span>
-                                <p className="payment-number">Gama Coins</p>
-                                <button className="payment-edit-menu"><FaPen /></button>
-                            </div>
+                            <ProfilePaymentMethod />
+                            <ProfilePaymentMethod />
+                            <Link to={"new-payment"} className="btn btn-more add-method"><FaPlus /> New Method</Link>
                         </div>
                     </section>
                 </div>

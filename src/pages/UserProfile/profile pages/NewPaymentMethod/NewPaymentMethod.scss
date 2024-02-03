@@ -1,0 +1,94 @@
+@import "/src/styles/colors.scss";
+
+.new-payment-form-container{
+    display: flex;
+    gap: 3em;
+    margin-bottom: 7em;
+
+    .new-payment-form{
+        width: 50%;
+
+        .input-box{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .2em;
+            margin-bottom: 1em;
+
+            label{
+                color: $text-mid-dark;
+            }
+
+            input{
+                padding: .7em;
+                background-color: $background-secondary;
+                border: none;
+                outline: none;
+                border-radius: .5em;
+                color: $text-color;
+                font-size: 1.1em;
+
+                &::placeholder{
+                    color: $text-color;
+                }
+            }
+        }
+
+        .btn-more{
+            width: auto;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin: .5em 0;
+
+            &:hover{
+                padding: .8em 1.5em;
+            }
+        }
+
+        .input-container{
+            display: flex;
+            gap: 2em;
+        }
+    }
+}
+
+
+//CARD
+.card-reference{
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+    width: 36%;
+    height: 16em;
+    margin: 0 auto;
+    border-radius: 1em;
+
+    .card-chip{
+        font-size: 5em;
+        margin: 0em .1em;
+    }
+
+    .card-infos-container{
+        margin: 1em;
+        
+        .card-number-reference{
+            margin: 1em 0 .5em 0;
+            font-size: 1.8em;
+            color: $text-color;
+        }
+
+        .card-infos{
+            display: flex;
+            justify-content: space-between;
+
+            .info-box{
+                p{
+                    color: rgba($color: $text-color, $alpha: .7);
+                }
+                .info-box-info{
+                    color: $text-color;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+}

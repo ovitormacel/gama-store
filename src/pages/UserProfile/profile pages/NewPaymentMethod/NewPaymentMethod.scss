@@ -34,18 +34,34 @@
             }
         }
 
-        .btn-more{
-            width: auto;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            margin: .5em 0;
-
-            &:hover{
-                padding: .8em 1.5em;
+        .form-actions{
+            display: flex;
+            gap: 1em;
+            align-items: center;
+        
+            .btn-more{
+                width: auto;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+                margin: .5em 0;
+    
+                &:hover{
+                    padding: .8em 1.5em;
+                }
             }
-        }
+    
+            .btn-blank{
+                font-size: 1.5em;
+                padding: .5em;
 
+                &:hover{
+                    color: $text-color;
+                }
+            }
+    
+        }
+    
         .input-container{
             display: flex;
             gap: 2em;

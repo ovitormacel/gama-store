@@ -11,6 +11,7 @@ import Dashboard from "./pages/UserProfile/profile pages/Dashboard/Dashboard";
 import Library from "./pages/UserProfile/profile pages/Library/LIbrary";
 import Settings from "./pages/UserProfile/profile pages/Settings/Settings";
 import NewPaymentMethod from "./pages/UserProfile/profile pages/NewPaymentMethod/NewPaymentMethod";
+import Login from "./pages/Login/Login";
 
 const router = createBrowserRouter([
     { 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
         path: "/", element: <MainLayout />,
         children: [
             {index: true, element: <Home />},
+            {path: "/login", element: <Login />},
             {path: "search/:searchQuery", element: <SearchPage />},
             {path: "product/:productId", element: <Product />},
             {path: "profile", element: <UserProfile />,

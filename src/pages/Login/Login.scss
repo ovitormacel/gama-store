@@ -1,0 +1,86 @@
+@import "/src/styles/colors.scss";
+
+#bg-sections{
+    background: linear-gradient(to right, $background-dark 47%, $background-secondary 47%)
+}
+
+.sections{
+    display: flex;
+    gap: 4em;
+    align-items: center;
+}
+
+.form-login-section{
+    width: 45%;
+    form{
+        padding: 1.5em;
+        box-sizing: border-box;
+        margin: 8em 0;
+
+        .section-title{
+            margin: 0 0 1em 0;
+            font-size: 2em;
+        }
+
+        .input-box{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1em;
+
+            label{
+                color: $text-mid-dark;
+                margin-bottom: .2em;
+            }
+
+            input{
+                background-color: $background-secondary;
+                border: 2px solid $background-dark;
+                padding: 1em;
+                border-radius: .5em;
+                color: $text-color;
+                outline: none;
+                transition: .2s linear;
+
+                &:focus{
+                    border-color: $light-color;
+                }
+            }
+        }
+    }
+
+    .form-actions{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+            color: $text-mid-dark;
+            .signup-link{
+                color: $primary-color;
+            }
+        }
+
+        .btn-more{
+            padding: .5em;
+            border: none;
+            cursor: pointer;
+
+            &:hover{
+                padding: .5em;
+                width: 7em;
+            }
+        }
+    }
+}
+
+.login-about{
+    width: 50%;
+    h1{
+        color: $text-color;
+        font-size: 2.5em;
+    
+        span{
+            color: $secondary-color;
+        }
+    }
+}

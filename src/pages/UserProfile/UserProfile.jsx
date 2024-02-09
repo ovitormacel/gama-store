@@ -1,15 +1,30 @@
 //Styles
+import { useEffect, useState } from "react";
 import "./UserProfile.scss";
 
-//Icons
-import { IoGameController, IoLibrary } from "react-icons/io5";
-import { FaHeart, FaEye, FaWallet, FaPen } from "react-icons/fa";
-
 //Components
-import CardDashboard from "../../components/Profile/CardDashboard/CardDashboard";
 import { Link, Outlet } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { getDataProfile } from "../../hooks/useProfile";
 
 export default function UserProfile() {
+
+    //States
+    const [userData, setUserData] = useState({});
+    
+    //HOOK useAuth
+    const {user} = useAuth();
+
+    //Get Data Profile
+    useEffect(() => {
+        const data = getDataProfile(user);
+        
+        if(data){
+            setUserData(data);
+        }
+
+    }, []);
+
     return (
         <main>
             <section className="profile-header">
@@ -23,8 +38,8 @@ export default function UserProfile() {
                             <div className="photo" style={{backgroundImage : `url("https://i.pinimg.com/564x/b4/a1/1f/b4a11f067a4d7a1a085817985bcf55db.jpg")`}}></div>
                         </div>
                         <div className="profile-name">
-                            <p className="name">Personal Name</p>
-                            <p className="username">Username</p>
+                            <p className="name">{userData ? userData.name : ""}</p>
+                            <p className="username">{userData ? userData.username : ""}</p>
                         </div>
                     </div>
                 </div>

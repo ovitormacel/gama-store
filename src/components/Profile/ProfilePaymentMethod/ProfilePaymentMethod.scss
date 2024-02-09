@@ -4,18 +4,21 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 2px solid $text-dark;
+    border-bottom: 2px solid $background-main;
     margin-bottom: .5em;
     padding: .5em 0;
+    position: relative;
 
     .icon-and-number{
         display: flex;
-        gap: 1em;
+        gap: .5em;
         align-items: center;
     
         .payment-icon{
-            color: $primary-color;
-            font-size: 2em;
+            color: $text-mid-dark;
+            font-size: 2.2em;
+            display: flex;
+            align-items: center;
         }
         .payment-number{
             color: $text-mid-dark;
@@ -28,5 +31,30 @@
         border: none;
         font-size: 1.2em;
         color: $text-mid-dark;
+    }
+
+    .kebab-menu{
+        background-color: $background-secondary;
+        position: absolute;
+        bottom: -150%;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        border-radius: .5em;
+        
+        .kebab-btn{
+            text-decoration: none;
+            padding: .5em 1em;
+            color: $text-mid-dark;
+            background-color: transparent;
+            border: none;
+            font-size: 1.1em;
+            cursor: pointer;
+
+            &:hover{
+                color: $text-color;
+            }
+        }
     }
 }

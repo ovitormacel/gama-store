@@ -5,6 +5,7 @@ import { FcSimCardChip } from "react-icons/fc";
 import useAuth from "../../../../hooks/useAuth";
 import { getDataProfile } from "../../../../hooks/useProfile";
 
+import {v4 as uuidv4} from 'uuid';
 
 export default function NewPaymentMethod(){
     //User States
@@ -55,8 +56,11 @@ export default function NewPaymentMethod(){
     const handleNewCardSubmit = (e) => {
         e.preventDefault()
 
+        const id = uuidv4();
+
         if(fullName && cardNumber && expirationDate && cvvCode){
             const newCard = {
+                id: id,
                 cardName,
                 fullName,
                 cardNumber,

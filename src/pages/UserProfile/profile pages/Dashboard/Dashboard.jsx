@@ -17,6 +17,7 @@ import useAuth from "../../../../hooks/useAuth";
 export default function Dashboard() {
     //States
     const [userData, setUserData] = useState({});
+    const [refresh, setRefresh] = useState(false);
     
     //HOOK useAuth
     const {user} = useAuth();
@@ -35,7 +36,31 @@ export default function Dashboard() {
         const lastNumbers = number.substr(15, 18);
 
         return `•••• •••• •••• ${lastNumbers}`;
-    } 
+    }
+
+    const updateCardsList = (newArray) => {
+        const newUserState = userData;
+
+        newUserState.payment_methods = newArray;
+
+        setUserData(newUserState);
+
+        const storage = JSON.parse(localStorage.getItem("users-local-db"));
+
+        //UPDATE IN LOCAL STORAGE
+        let userIndex;
+        storage?.forEach((user, index) => {
+            if(user.email === userData.email){
+                userIndex = index
+            }
+        })
+
+        storage[userIndex] = userData;
+
+        localStorage.setItem("users-local-db", JSON.stringify(storage));
+
+        refresh ? setRefresh(false) : setRefresh(true);
+    }
 
     return (
         <section className="profile-dashboard">
@@ -62,7 +87,7 @@ export default function Dashboard() {
                         <div className="profile-payment-list">
                             <ProfilePaymentMethod method={"gama-coins"} cardName={"Gama Coins"}/>
                                 {userData.payment_methods ? userData.payment_methods.map((card, index) => (
-                                    <ProfilePaymentMethod key={index} method={"credit-card"} cardName={formatCardNumber(card.cardNumber)}/>
+                                    <ProfilePaymentMethod key={index} method={"credit-card"} cardName={formatCardNumber(card.cardNumber)} id={card.id} updateList={updateCardsList}/>
                                 )) : ""}
                             <Link to={"new-payment"} className="btn btn-more add-method"><FaPlus /> Add new Card</Link>
                         </div>

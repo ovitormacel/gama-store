@@ -11,3 +11,5 @@ export function getDataProfile(userSigned) {
         throw new Error("Usuário não encontrado no Banco de Dados");
     }
 }
+
+//Update Data Profile

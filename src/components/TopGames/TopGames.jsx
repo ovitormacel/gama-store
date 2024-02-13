@@ -13,7 +13,6 @@ export default function TopGames() {
     const [loading, setLoading] = useState(true);
 
     const updateStates = (games) => {
-        console.log(games)
         setTopGamesList(games)
         setLoading(false);
     }
@@ -81,7 +80,7 @@ export default function TopGames() {
                                 <h2 className="title">{game.name}</h2>
                                 <div className="price">
                                     <p className="sale">-50%</p>
-                                    <p className="price-value">R$ 249.90</p>
+                                    <p className="price-value">{`R$ ${game.price}`}</p>
                                 </div>
                                 <div className="main-actions">
                                     <Link to={`product/${game.id}`} className="btn btn-more"><FaEye /> Ver mais</Link>

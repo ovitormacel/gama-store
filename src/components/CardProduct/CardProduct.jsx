@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./CardProduct.scss"
 
-export default function CardProduct({id, name, background}){
+export default function CardProduct({id, name, background, price}){
     return (
         <article className={`card-product`}>
             <div className={`card-product-image loading`} style={{backgroundImage: `${background ? `url(${background})` : ''}`}}>
@@ -15,7 +15,7 @@ export default function CardProduct({id, name, background}){
                 <p className="card-product-title">{name}</p>
                 <div className="card-product-price">
                     <p className="sale">-50%</p>
-                    <p className="price">R$ 999,99</p>
+                    <p className="price">{`R$ ${price ? price : ''}`}</p>
                 </div>
             </div>
         </article>

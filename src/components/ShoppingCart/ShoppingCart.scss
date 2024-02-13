@@ -1,0 +1,136 @@
+@import "/src/styles/colors.scss";
+
+.container{
+    position: relative;
+}
+
+.shopping-cart{
+    width: 25em;
+    background-color: $background-secondary;
+    position: absolute;
+    top: 4em;
+    right: 0;
+    z-index: 200;
+    padding: 1em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    box-shadow: 0 0 5px 0 black;
+    display: none;
+
+    .section-title{
+        margin: 0;
+        margin-bottom: .1em;
+    }
+
+    .total-items{
+        margin-bottom: 1em;
+        color: $text-mid-dark;
+    }
+
+    .btn-finish{
+        background-color: $text-mid-dark;
+        width: 100%;
+        padding: .7em;
+        border: 2px solid $text-mid-dark;
+        border-radius: .5em;
+        font-size: 1.2em;
+        color: $background-dark;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5em;
+        position: relative;
+        cursor: pointer;
+        transition: .2s linear;
+    
+        &::after{
+            content: '';
+            width: 100%;
+            height: 0%;
+            background-color: $light-color;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            border-radius: .5em;
+            transition: .2s linear;
+        }
+    
+        &:hover{
+            background-color: transparent;
+            border-color: transparent;
+            color: $text-color;
+        }
+    
+        &:hover::after{
+            height: 100%;
+        }
+    }
+    
+    .finish-value{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+    
+        .section-title{
+            margin: 0;
+            padding: 0;
+        }
+    
+        .total-items{
+            margin: 0;
+        }
+    }
+
+    &.active{
+        display: block;
+    }
+}
+
+
+//CARD ITEM
+.cart-item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $text-dark;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+
+    .cart-item-col1{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        .cart-item-image{
+            border-radius: .5em;
+            background-color: black;
+            height: 5em;
+            width: 5em;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-item-name{
+            color: $text-color;
+            font-weight: bold;
+            margin-bottom: .3em;
+        }
+        .card-item-price{
+            color: $text-mid-dark;
+        }
+    }
+
+    .card-item-remove{
+        background-color: transparent;
+        font-size: 1.8em;
+        border: none;
+        color: $text-color;
+        cursor: pointer;
+        transition: .2s linear;
+
+        &:hover{
+            color: $primary-color;
+        }
+    }
+}

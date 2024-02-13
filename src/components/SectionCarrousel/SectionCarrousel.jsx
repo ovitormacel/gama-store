@@ -66,7 +66,7 @@ export default function SectionCarrousel({category, categoryId}) {
                 <div className="carrousel-content" style={{transform: `translateX(${carrouselTranslate}em)`}}>
 
                     {gamesList.length > 0 ? gamesList.map((game) => (
-                        <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image}/>
+                        <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image} price={game.price}/>
                     )) : (
                         <CardProduct />
                     )}

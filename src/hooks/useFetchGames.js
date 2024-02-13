@@ -1,5 +1,11 @@
 import {authorization} from "../utils/authorizationAPI.js"
 
+const generatePrice = () => {
+    const random = Math.random()*350;
+
+    return random.toFixed(2);
+}
+
 export const fetchGames = async (url, query = '') => {
 
     try {
@@ -10,7 +16,24 @@ export const fetchGames = async (url, query = '') => {
             },
         });
 
-        const convert = await response.json();
+        let convert = await response.json();
+
+        //Add random price to games
+        if(convert.results){
+            const results = convert.results;
+
+            let newResultsArray = [];
+            results?.forEach((game) => {
+                const gamePrice = generatePrice();
+                const newGame = {...game, price: gamePrice}
+                newResultsArray.push(newGame);
+            })
+
+            convert.results = newResultsArray;
+        } else{
+            const gamePrice = generatePrice();
+            convert = {...convert, price : gamePrice}
+        }
 
         return convert;
 
@@ -29,7 +52,6 @@ export const getGameByGenre = async(genre) => {
 //SINGLE
 export const getSingleGame = async(gameId) => {
     const result = await fetchGames(`games/${gameId}`);
-
     return result;
 }
 

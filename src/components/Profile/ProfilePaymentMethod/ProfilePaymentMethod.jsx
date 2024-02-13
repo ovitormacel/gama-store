@@ -33,20 +33,24 @@ export function ProfilePaymentMethod({method, cardName, id, updateList}) {
 
     //DELETE PAYMENT METHOD
     const handleDeletePaymentMethod = () => {
-        let paymentMethod = userData.payment_methods;
+        const validate = confirm("Deseja realmente excluir este meio de pagamento?");
 
-        let newArray =[];
+        if(validate) {
+            let paymentMethod = userData.payment_methods;
 
-        paymentMethod?.forEach((payment) => {
-            if(payment.id != id){
-                newArray.push(payment)
-            }
-        })
+            let newArray =[];
 
-        userData.payment_methods = newArray;
-        updateList(newArray);
-        
-        handleOpenKebabMenu();
+            paymentMethod?.forEach((payment) => {
+                if(payment.id != id){
+                    newArray.push(payment)
+                }
+            })
+
+            userData.payment_methods = newArray;
+            updateList(newArray);
+            
+            handleOpenKebabMenu();
+        }
     }
 
 

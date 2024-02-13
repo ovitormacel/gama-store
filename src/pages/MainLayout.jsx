@@ -6,6 +6,7 @@ import "./MainLayout.scss"
 
 import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
 
 
 export default function MainLayout() {
@@ -27,6 +28,14 @@ export default function MainLayout() {
     
     const handleBtnMenu = () => {
         !openedMenu ? setOpenedMenu(true) : setOpenedMenu(false);
+    }
+
+
+    //OPEN WISHLIST
+    const [openedShoppingCart, setOpenedShoppingCart] = useState(false);
+
+    const handleBtnShoppingCart = () => {
+        !openedShoppingCart ? setOpenedShoppingCart(true) : setOpenedShoppingCart(false);
     }
 
     return (
@@ -51,7 +60,7 @@ export default function MainLayout() {
                         <div className="right-side">
                             <ul>
                                 <li><button id="wishlist-icon" className="nav-bar-icon"><FaHeart /></button></li>
-                                <li><button id="cart-icon" className="nav-bar-icon"><FaShoppingCart /></button></li>
+                                <li><button id="cart-icon" className="nav-bar-icon" onClick={handleBtnShoppingCart}><FaShoppingCart /></button></li>
                                 <li><Link to={"/profile"} className="profile-link"><FaRegUser /></Link></li>
                                 <li>
                                     <button className="btn-menu-hamb" onClick={handleBtnMenu}>
@@ -63,6 +72,7 @@ export default function MainLayout() {
                             </ul>
                         </div>
                     </nav>
+                    <ShoppingCart state={openedShoppingCart}/>
                 </div>
             </header>
 

@@ -20,6 +20,7 @@ export default function Product() {
 
     //Update State with a new game object
     const updateState = (gameObject) => {
+        
         const object = {
             bg_image : gameObject.background_image_additional,
             cover : gameObject.background_image,
@@ -28,7 +29,8 @@ export default function Product() {
             developer : gameObject.developers[0].name,
             year : gameObject.released,
             age : gameObject.esrb_rating.name,
-            description : gameObject.description_raw
+            description : gameObject.description_raw,
+            price : gameObject.price
         }
 
         setLoading(false);
@@ -63,7 +65,7 @@ export default function Product() {
                                 <img src={gameState.cover} alt={`Capa ${gameState.cover}`} />
                                 <div className="price">
                                     <p className={`sale ${loading ? 'loading' : ''}`}>-50%</p>
-                                    <p className={`price-value ${loading ? 'loading' : ''}`}>R$ 249,90</p>
+                                    <p className={`price-value ${loading ? 'loading' : ''}`}>{`R$ ${gameState.price}`}</p>
                                 </div>
                             </div>
                             <div className="categories-and-actions">

@@ -15,7 +15,7 @@ export default function CardProduct({id, name, background, price}){
                 <p className="card-product-title">{name}</p>
                 <div className="card-product-price">
                     <p className="sale">-50%</p>
-                    <p className="price">{`R$ ${price ? price : ''}`}</p>
+                    <p className="price">{`R$ ${price ? price : ' '}`}</p>
                 </div>
             </div>
         </article>

@@ -1,16 +1,32 @@
+import { useContext, useEffect, useState } from "react";
 import "./ShoppingCart.scss";
 
 import { FaMoneyBillWave, FaRegTrashAlt } from "react-icons/fa";
+import { CartContext } from "../../contexts/cart";
 
 export default function ShoppingCart({state}){
+
+    const {cart} = useContext(CartContext);
+    const [cartElement, setCartElement] = useState();
+
+    const getShoppingCart = () => {
+        const storage = JSON.parse(localStorage.getItem("gama-shopping-cart"));
+
+        setCartElement(storage);
+    }
+
+    useEffect(() => {
+        getShoppingCart();
+    }, [cart])
 
     return (
         <div className={`shopping-cart ${state ? "active" : ""}`}>
             <ul className="shopping-cart-list">
                 <h2 className="section-title">Carrinho de Compras</h2>
-                <p className="total-items">2 Itens</p>
-                <ShoppingCartItem />
-                <ShoppingCartItem />
+                <p className="total-items">{cart ? `${cart.length} Itens` : ''}</p>
+                {cart ? cart.map((item) => (
+                    <ShoppingCartItem key={item.id}/>
+                )) : ""}
             </ul>
             <div className="finish-value">
                 <p className="total-items">Valor Total</p>

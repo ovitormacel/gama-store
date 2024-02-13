@@ -1,5 +1,5 @@
 //HOOKS
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ import { FaCartPlus, FaHeart } from "react-icons/fa";
 import "./Product.scss";
 import ProductScreenshots from "../../components/ProductScreenshots/ProductScreenshots.jsx";
 import { getSingleGame } from "../../hooks/useFetchGames.js";
-
+import { CartContext } from "../../contexts/cart.jsx";
 
 export default function Product() {
 
@@ -22,6 +22,7 @@ export default function Product() {
     const updateState = (gameObject) => {
         
         const object = {
+            id : gameObject.id,
             bg_image : gameObject.background_image_additional,
             cover : gameObject.background_image,
             genres : gameObject.genres,
@@ -51,6 +52,44 @@ export default function Product() {
         getGame();
     }, []);
 
+
+    //Add to Shopping Cart
+    const {setCart} = useContext(CartContext);
+
+    const handleAddToShoppingCart = () => {
+
+        const obj = {
+            cover : gameState.bg_image,
+            name : gameState.name,
+            price : Number(gameState.price),
+            id: gameState.id
+        }
+
+        const cartStorage = JSON.parse(localStorage.getItem("gama-shopping-cart"));
+
+        if(cartStorage != null){
+            let hasGame = false;
+
+            cartStorage?.forEach((game) => {
+                if(game.id === obj.id){
+                    hasGame = true;
+                }
+            })
+
+            if(hasGame){
+                alert("O jogo escolhido já está no Carrinho.");
+                return;
+            }
+
+            const newCart = [...cartStorage, obj];
+            localStorage.setItem("gama-shopping-cart", JSON.stringify(newCart));
+            setCart(newCart);
+        }else{
+            localStorage.setItem("gama-shopping-cart", JSON.stringify([obj]));
+            setCart([obj]);
+        }
+    }
+
     return(
         <main>
             <div className="background-game-image">
@@ -78,7 +117,7 @@ export default function Product() {
                                 </div>
                                 <div className="actions-game">
                                     <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
-                                    <button className="btn btn-game-cart"><FaCartPlus /> Adicionar ao Carrinho</button>
+                                    <button className="btn btn-game-cart" disabled={loading ? true : false} onClick={handleAddToShoppingCart}><FaCartPlus /> Adicionar ao Carrinho</button>
                                 </div>
                             </div>
                         </section>
@@ -106,25 +145,6 @@ export default function Product() {
                             </div>
 
                             <ProductScreenshots gameId={productId}/>
-
-                            {/* <div className="section-screenshots">
-                                <h2 className="section-title">Capturas de Tela</h2>
-                                <div className="main-screenshot">
-                                    <img src={selectedScreenshot} alt="" />
-                                </div>
-
-                                <div className="screenshots-list" ref={screenshotsListElement}>
-                                    <button className="screenshot-item selected" data-number="0" onClick={handleChangeScreenshot}>
-                                        <img src="/src/assets/screenshot-01.jpg" alt="" />
-                                    </button>
-                                    <button className="screenshot-item" data-number="1" onClick={handleChangeScreenshot}>
-                                        <img src="/src/assets/screenshot-02.jpg" alt="" />
-                                    </button>
-                                    <button className="screenshot-item" data-number="2" onClick={handleChangeScreenshot}>
-                                        <img src="/src/assets/screenshot-03.jpg" alt="" />
-                                    </button>
-                                </div>
-                            </div> */}
                         </section>
                     </div>
                 </div>

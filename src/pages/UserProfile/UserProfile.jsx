@@ -29,13 +29,13 @@ export default function UserProfile() {
         <main>
             <section className="profile-header">
                 <div className="background-profile-cover">
-                    <div className="image" style={{backgroundImage : 'url("https://media.rawg.io/media/games/779/77988e89f7862afeede524420aa251b0.jpg")'}}></div>
+                    <div className="image" style={{backgroundImage : 'url("/src/assets/background-default.jpg")'}}></div>
                     <span></span>
                 </div>
                 <div className="container">
                     <div className="profile-header-infos">
                         <div className="profile-photo">
-                            <div className="photo" style={{backgroundImage : `url("https://i.pinimg.com/564x/b4/a1/1f/b4a11f067a4d7a1a085817985bcf55db.jpg")`}}></div>
+                            <div className="photo" style={{backgroundImage : `url("")`}}><span className="icons-empty"></span></div>
                         </div>
                         <div className="profile-name">
                             <p className="name">{userData ? userData.name : ""}</p>

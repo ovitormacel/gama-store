@@ -55,11 +55,12 @@ export default function Product() {
 
     //Add to Shopping Cart
     const {setCart} = useContext(CartContext);
+    const [response, setResponse] = useState();
 
     const handleAddToShoppingCart = () => {
 
         const obj = {
-            cover : gameState.bg_image,
+            cover : gameState.cover,
             name : gameState.name,
             price : Number(gameState.price),
             id: gameState.id
@@ -88,6 +89,8 @@ export default function Product() {
             localStorage.setItem("gama-shopping-cart", JSON.stringify([obj]));
             setCart([obj]);
         }
+
+        setResponse("Adicionado ao carrinho.");
     }
 
     return(
@@ -118,6 +121,7 @@ export default function Product() {
                                 <div className="actions-game">
                                     <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
                                     <button className="btn btn-game-cart" disabled={loading ? true : false} onClick={handleAddToShoppingCart}><FaCartPlus /> Adicionar ao Carrinho</button>
+                                    <p className="response">{response}</p>
                                 </div>
                             </div>
                         </section>

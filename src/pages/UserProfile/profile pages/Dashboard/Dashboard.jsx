@@ -4,15 +4,16 @@ import "./Dashboard.scss";
 //ComponentS
 import { Link } from "react-router-dom";
 import { IoGameController, IoLibrary } from "react-icons/io5";
-import { FaEye, FaHeart, FaPen, FaWallet, FaPlus } from "react-icons/fa";
+import { FaShoppingCart, FaPlus } from "react-icons/fa";
 import CardDashboard from "../../../../components/Profile/CardDashboard/CardDashboard";
 import { ProfileRecentsItem } from "../../../../components/Profile/ProfileRecentsItem/ProfileRecentsItem";
 import { ProfilePaymentMethod } from "../../../../components/Profile/ProfilePaymentMethod/ProfilePaymentMethod";
 
 //HOOKS
 import { getDataProfile } from "../../../../hooks/useProfile";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useAuth from "../../../../hooks/useAuth";
+import { CartContext } from "../../../../contexts/cart";
 
 export default function Dashboard() {
     //States
@@ -62,6 +63,10 @@ export default function Dashboard() {
         refresh ? setRefresh(false) : setRefresh(true);
     }
 
+
+    //Shopping Cart
+    const {cart} = useContext(CartContext);
+
     return (
         <section className="profile-dashboard">
             <div className="container">
@@ -69,7 +74,7 @@ export default function Dashboard() {
                 <div className="dashboard-cards">
                     <CardDashboard title={'All in Library'} icon={<IoLibrary />} quantity={`${userData.library ? userData.library.length : ""}`} />
                     <CardDashboard title={'Recently Acquired'} icon={<IoGameController />} quantity={`${userData.recents ? userData.recents.length : ""}`} />
-                    <CardDashboard title={'On the Wish List'} icon={<FaHeart />} quantity={`${userData.wishlist ? userData.wishlist.length : ""}`} />
+                    <CardDashboard title={'On the Shopping Cart'} icon={<FaShoppingCart />} quantity={`${cart ? cart.length : "0"}`} />
                 </div>
 
                 <div className="columns">

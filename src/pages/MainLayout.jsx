@@ -4,9 +4,10 @@ import { FaSearch, FaHeart, FaShoppingCart, FaRegUser } from "react-icons/fa";
 //STYLES
 import "./MainLayout.scss"
 
-import { Link, Outlet, redirect, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import ShoppingCart from "../components/ShoppingCart/ShoppingCart";
+import { CartContext } from "../contexts/cart";
 
 
 export default function MainLayout() {
@@ -31,7 +32,11 @@ export default function MainLayout() {
     }
 
 
-    //OPEN WISHLIST
+    //OPEN Shopping Cart
+
+    //Add to Shopping Cart
+    const {cart} = useContext(CartContext);
+
     const [openedShoppingCart, setOpenedShoppingCart] = useState(false);
 
     const handleBtnShoppingCart = () => {
@@ -59,8 +64,7 @@ export default function MainLayout() {
 
                         <div className="right-side">
                             <ul>
-                                <li><button id="wishlist-icon" className="nav-bar-icon"><FaHeart /></button></li>
-                                <li><button id="cart-icon" className="nav-bar-icon" onClick={handleBtnShoppingCart}><FaShoppingCart /></button></li>
+                                <li><button id="cart-icon" className="nav-bar-icon" onClick={handleBtnShoppingCart}><FaShoppingCart /><span className={`is-items ${cart && cart.length > 0 ? 'active' : ''}`}></span></button></li>
                                 <li><Link to={"/profile"} className="profile-link"><FaRegUser /></Link></li>
                                 <li>
                                     <button className="btn-menu-hamb" onClick={handleBtnMenu}>

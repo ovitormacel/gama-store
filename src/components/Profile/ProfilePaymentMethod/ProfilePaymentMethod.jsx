@@ -63,7 +63,6 @@ export function ProfilePaymentMethod({method, cardName, id, updateList}) {
             <button className="payment-edit-menu" onClick={handleOpenKebabMenu}><FaPen /></button>
         
             <div className={`kebab-menu ${kebabActive ? "active" : ""}`}>
-                <Link to={"new-payment"} className="kebab-btn"><FaPen /> Editar</Link>
                 <button className="kebab-btn" onClick={handleDeletePaymentMethod}><FaRegTrashAlt /> Excluir</button>
             </div>
         </div>

@@ -25,17 +25,25 @@ export default function UserProfile() {
 
     }, []);
 
+    useEffect(() => {
+        const data = getDataProfile(user);
+        
+        if(data){
+            setUserData(data);
+        }
+    }, [user]); 
+
     return (
         <main>
             <section className="profile-header">
                 <div className="background-profile-cover">
-                    <div className="image" style={{backgroundImage : 'url("/src/assets/background-default.jpg")'}}></div>
+                    <div className="image" style={{backgroundImage : `url(${userData.profile_cover_url ? userData.profile_cover_url : "/src/assets/background-default.jpg"})`}}></div>
                     <span></span>
                 </div>
                 <div className="container">
                     <div className="profile-header-infos">
                         <div className="profile-photo">
-                            <div className="photo" style={{backgroundImage : `url("")`}}><span className="icons-empty"></span></div>
+                            <div className="photo" style={{backgroundImage : `url(${userData.profile_image_url ? userData.profile_image_url : ""})`}}><span className="icons-empty"></span></div>
                         </div>
                         <div className="profile-name">
                             <p className="name">{userData ? userData.name : ""}</p>
@@ -45,7 +53,6 @@ export default function UserProfile() {
                 </div>
                 <nav className="profile-header-nav">
                     <Link to={'/profile'} className="profile-header-nav-btn active">Profile</Link>
-                    <Link to={'library'} className="profile-header-nav-btn">Library</Link>
                     <Link to={'settings'} className="profile-header-nav-btn">Settings</Link>
                 </nav>
             </section>

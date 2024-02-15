@@ -72,17 +72,15 @@ export default function Dashboard() {
             <div className="container">
                 <h2 className="section-title">Profile</h2>
                 <div className="dashboard-cards">
-                    <CardDashboard title={'All in Library'} icon={<IoLibrary />} quantity={`${userData.library ? userData.library.length : ""}`} />
-                    <CardDashboard title={'Recently Acquired'} icon={<IoGameController />} quantity={`${userData.recents ? userData.recents.length : ""}`} />
+                    <CardDashboard title={'All in Library'} icon={<IoLibrary />} quantity={`1`} />
+                    <CardDashboard title={'Recently Acquired'} icon={<IoGameController />} quantity={`1`} />
                     <CardDashboard title={'On the Shopping Cart'} icon={<FaShoppingCart />} quantity={`${cart ? cart.length : "0"}`} />
                 </div>
 
                 <div className="columns">
                     <section className="profile-recents">
-                        <h4 className="section-title-light">Recently Acquired</h4>
+                        <h4 className="section-title-light">Library</h4>
                         <div className="profile-recents-list">
-                            <ProfileRecentsItem />
-                            <ProfileRecentsItem />
                             <ProfileRecentsItem />
                         </div>
                     </section>

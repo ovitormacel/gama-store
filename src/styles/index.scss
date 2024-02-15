@@ -95,3 +95,29 @@ body {
         color: $secondary-color;
     }
 }
+
+.input-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    margin-bottom: 1em;
+
+    label{
+        color: $text-mid-dark;
+    }
+
+    input{
+        padding: .7em;
+        background-color: $background-secondary;
+        border: none;
+        outline: none;
+        border-radius: .5em;
+        color: $text-color;
+        font-size: 1.1em;
+
+        &::placeholder{
+            color: $text-color;
+        }
+    }
+}

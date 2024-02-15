@@ -13,3 +13,9 @@ export function getDataProfile(userSigned) {
 }
 
 //Update Data Profile
+export function updateDataProfile(userData, userIndex) {
+    const storage = JSON.parse(localStorage.getItem("users-local-db"));
+
+    storage[userIndex] = userData;
+    localStorage.setItem("users-local-db", JSON.stringify(storage));
+}

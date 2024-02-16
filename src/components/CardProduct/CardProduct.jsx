@@ -8,7 +8,6 @@ export default function CardProduct({id, name, background, price}){
         <article className={`card-product`}>
             <div className={`card-product-image loading`} style={{backgroundImage: `${background ? `url(${background})` : ''}`}}>
                 <button className="card-product-heart"><FaHeart/></button>
-
                 <Link to={`/product/${id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
             </div>
             <div className="card-product-infos">

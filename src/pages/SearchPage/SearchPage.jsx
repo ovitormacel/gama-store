@@ -78,7 +78,7 @@ export default function SearchPage() {
                     </div>
                     <div className="search-results-cards">
                         {searchedGames.map((game) => (
-                            <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image}/>
+                            <CardProduct key={game.id} id={game.id} name={game.name} background={game.background_image} price={game.price}/>
                         ))}
                     </div>
                 </div>

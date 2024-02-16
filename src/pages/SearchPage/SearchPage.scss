@@ -8,7 +8,7 @@
     top: 3.05em;
     right: 0;
     background-color: $background-secondary;
-    width: 25%;
+    width: 20%;
     height: 100em;
     z-index: 100;
     padding: 1.5em 0 0 2em;
@@ -76,7 +76,7 @@
 
 
 .search-result-section{
-    width: 75%;
+    width: 80%;
 
     .title-container{
         display: flex;
@@ -166,7 +166,7 @@
 
     .search-results-cards{
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(19em, 1fr));
         gap: 1em;
     }
 }

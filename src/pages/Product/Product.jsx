@@ -29,7 +29,6 @@ export default function Product() {
             name : gameObject.name,
             developer : gameObject.developers[0].name,
             year : gameObject.released,
-            age : gameObject.esrb_rating.name,
             description : gameObject.description_raw,
             price : gameObject.price
         }
@@ -95,20 +94,16 @@ export default function Product() {
 
     return(
         <main>
-            <div className="background-game-image">
-                <img src={gameState.bg_image} alt={gameState.name} />
-            </div>   
+            <div className="background-game-image" style={{backgroundImage: `url(${gameState.bg_image})`}}></div>   
             <div className="container">
 
                 <div className="layout-top">
                     <div className="col-1">
                         <section className="game-general-infos">
-                            <div className={`game-image ${loading ? 'loading' : ''}`}>
-                                <img src={gameState.cover} alt={`Capa ${gameState.cover}`} />
-                                <div className="price">
-                                    <p className={`sale ${loading ? 'loading' : ''}`}>-50%</p>
-                                    <p className={`price-value ${loading ? 'loading' : ''}`}>{`R$ ${gameState.price}`}</p>
-                                </div>
+                            <div className={`game-image ${loading ? 'loading' : ''}`} style={{backgroundImage: `url(${gameState.cover})`}}></div>
+                            <div className="price">
+                                <p className={`sale ${loading ? 'loading' : ''}`}>-50%</p>
+                                <p className={`price-value ${loading ? 'loading' : ''}`}>{`R$ ${gameState.price}`}</p>
                             </div>
                             <div className="categories-and-actions">
                                 <div className="game-categories">
@@ -119,7 +114,7 @@ export default function Product() {
                                     ))): ''}
                                 </div>
                                 <div className="actions-game">
-                                    <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button>
+                                    {/* <button className="btn btn-game-wishlist"><FaHeart /> Lista de Desejos</button> */}
                                     <button className="btn btn-game-cart" disabled={loading ? true : false} onClick={handleAddToShoppingCart}><FaCartPlus /> Adicionar ao Carrinho</button>
                                     <p className="response">{response}</p>
                                 </div>

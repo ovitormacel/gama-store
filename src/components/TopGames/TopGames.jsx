@@ -84,7 +84,6 @@ export default function TopGames() {
                                 </div>
                                 <div className="main-actions">
                                     <Link to={`product/${game.id}`} className="btn btn-more"><FaEye /> Ver mais</Link>
-                                    <button className="btn btn-blank"><FaRegHeart /></button>
                                 </div>
                             </div>
                         </div>

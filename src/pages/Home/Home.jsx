@@ -16,26 +16,6 @@ export default function Home() {
                 <TopGames />
             </div>
             <SectionCarrousel category="Populares" categoryId='popular'/>
-            
-            <section className="sales-section-container">
-                <div className="container">
-                    <div className="section-sales">
-                        <p className="section-title"><FaFire className="icon"/>Promoções da Semana</p>
-                        <div className="cards-sales">
-                            <div className="main-card-sale">
-                                <CardProductSales />
-                            </div>
-                            <div className="cards-sales-grid">
-                                <CardProductSales small={true}/>
-                                <CardProductSales small={true}/>
-                                <CardProductSales small={true}/>
-                                <CardProductSales small={true}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <SectionCarrousel category="Action" categoryId='action'/>
             <SectionCarrousel category="Indie" categoryId='indie'/>
             <SectionCarrousel category="Casual" categoryId='casual'/>

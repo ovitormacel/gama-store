@@ -154,3 +154,36 @@
         }
     }
 }
+
+//MOBILE
+@media screen and (max-width: 480px) {
+    .profile-header{
+        .profile-header-infos{
+            .profile-photo{
+                width: 8em;
+                height: 8em;
+            }
+    
+            .profile-name{
+                margin: 2.5em 0 0 1em;
+                .name{
+                    font-size: 1.5em;
+                }
+                .username{
+                    font-size: 1em;
+                    text-shadow: 0 0 5px black;
+                    color: $text-color;
+                    opacity: .7;
+                }
+            }
+        }
+    
+        .profile-header-nav{
+            background-color: #000;
+            width: 100%;
+            height: 3.5em;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

@@ -86,3 +86,57 @@
         }
     }
 }
+
+
+//TABLET
+@media screen and (max-width: 768px){
+    .new-payment-form-container{
+        flex-direction: column-reverse;
+    
+        .new-payment-form{
+            width: 100%;
+        
+            .input-container{
+                display: block;
+            }
+        }
+    }
+    
+    
+    //CARD
+    .card-reference{
+        width: 26em;
+        margin: 0 ;
+        align-self: flex-start;
+    }
+}
+
+
+//MOBILE
+@media screen and (max-width: 480px){
+    //CARD
+    .card-reference{
+        width: 100%;
+        margin: 0 ;
+        align-self: flex-start;
+    
+        .card-chip{
+            font-size: 4.5em;
+        }
+    
+        .card-infos-container{    
+            .card-number-reference{
+                font-size: 1.5em;
+            }
+    
+            .card-infos{
+                .info-box{
+                    .info-box-info{
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+    }
+
+}

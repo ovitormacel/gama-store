@@ -453,5 +453,23 @@
             }
         }
     }
+}
 
+
+//MOBILE
+@media screen and (max-width: 480px){
+    .game-general-infos{
+        width: 100%;
+    }
+
+    .game-general-infos{
+        .price{
+            .sale{
+                font-size: 1.1em;
+            }
+            .price-value{
+                font-size: 1.5em;
+            }
+        }
+    }
 }

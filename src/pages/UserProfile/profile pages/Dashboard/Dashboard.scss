@@ -7,7 +7,7 @@
 .dashboard-cards{
     display: flex;
     justify-content: space-between;
-    gap: 3em;
+    gap: 2em;
 }
 
 .columns{
@@ -46,4 +46,31 @@
     font-size: 1.5em;
     font-weight: normal;
     margin-bottom: 1em;
+}
+
+
+
+
+//TABLET
+@media screen and (max-width: 768px) {
+    .dashboard-cards{
+        flex-wrap: wrap;
+    }
+    
+    .columns{
+        flex-direction: column;
+    
+        .profile-recents{
+            width: 100%;
+        }
+        .profile-payments{
+            width: 100%;
+    
+            .profile-payment-list{
+                .add-method{
+                    margin-top: .5em;
+                }
+            }
+        }
+    }
 }

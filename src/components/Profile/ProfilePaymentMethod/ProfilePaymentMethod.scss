@@ -68,3 +68,12 @@
         }
     }
 }
+
+//TABLET
+@media screen and (max-width: 768px) {
+    .profile-payment-method{
+        .kebab-menu{
+            bottom: -50%;
+        }
+    }
+}

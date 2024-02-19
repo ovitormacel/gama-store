@@ -98,10 +98,6 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    img{
-        width: 100%;
-    }
-
     .slider-item-infos{
         position: absolute;
         top: 0;
@@ -182,6 +178,55 @@
                     }
                 }
     
+            }
+        }
+    }
+}
+
+//MOBILE
+@media screen and (max-width: 480px){
+    .slider-container{
+        height: 20em;
+
+        .slider-control-btn{
+            width: 60px;
+            font-size: 2.5em;
+            color: rgba($color: $text-dark, $alpha: .5);
+        }
+    }
+
+    .slider-controllers{
+        .destaques{
+            left: 2em;
+            font-size: 1em;
+        }
+    }
+    
+
+    .slider-item{
+        height: 20em;
+    
+        .slider-item-infos{
+            .item-infos{
+                bottom: 2.5em;
+                left: 2em;
+
+                .title{
+                    font-size: 1.5em;
+                }
+    
+                .price{
+                    display: none;
+                }
+
+                .main-actions{
+                    .btn{
+                        &.btn-more{
+                            font-size: 1em;
+                            height: 1.1em;
+                        }
+                    }
+                }
             }
         }
     }

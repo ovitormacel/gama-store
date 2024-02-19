@@ -91,3 +91,32 @@
         }
     }
 }
+
+//TABLET
+@media screen and (max-width: 768px){
+    #bg-sections{
+        background: $background-dark;
+    }
+    
+    .sections{
+        flex-direction: column;
+    }
+    
+    .form-login-section{
+        width: 80%;
+        margin: 0 auto;
+        
+        form{
+            padding: 0;
+            margin: 10em 0;
+    
+            .section-title{
+                font-size: 1.8em;
+            }
+        }
+    }
+    
+    .login-about{
+        display: none;
+    } 
+}

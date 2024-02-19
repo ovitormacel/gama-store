@@ -57,6 +57,11 @@
         display: flex;
         gap: 1.5em;
         transition: .5s ease-in-out;   
-        padding: .2em 0;
+        padding: 0.2em 0;
     }
+}
+
+//MOBILE
+@media screen and (max-width: 480px){
+
 }

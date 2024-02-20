@@ -93,35 +93,31 @@ export default function NewPaymentMethod(){
     return (
         <main>
             <div className="container">
-                <h2 className="section-title">New Payment Method</h2>
+                <h2 className="section-title">Novo Cartão</h2>
 
                 <div className="new-payment-form-container">
                     <form className="new-payment-form" onSubmit={handleNewCardSubmit}>
                         <div className="input-box">
-                            <label htmlFor="card-name">Card Name ( Optional )</label>
-                            <input type="text" name="card-name" id="card-name" onChange={(e) => setCardName(e.target.value)} value={cardName}/>
-                        </div>
-                        <div className="input-box">
-                            <label htmlFor="full-name">Full Name *</label>
+                            <label htmlFor="full-name">Nome Completo *</label>
                             <input required type="text" name="full-name" id="full-name" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
                         </div>
                         <div className="input-box">
-                            <label htmlFor="card-number">Card Number *</label>
+                            <label htmlFor="card-number">Número do Cartão *</label>
                             <input required type="text" name="card-number" id="card-number" onChange={(e) => checkCardNumber(e.target.value)} value={cardNumber} placeholder=""/>
                         </div>
                         <div className="input-container">
                             <div className="input-box">
-                                <label htmlFor="card-date">Expiration Date *</label>
-                                <input required type="text" name="card-date" id="card-date" onChange={(e) => checkExpirationDate(e.target.value)} value={expirationDate} placeholder="MM/YY"/>
+                                <label htmlFor="card-date">Data de Expiração *</label>
+                                <input required type="text" name="card-date" id="card-date" onChange={(e) => checkExpirationDate(e.target.value)} value={expirationDate} placeholder="MM/AA"/>
                             </div>
                             <div className="input-box">
-                                <label htmlFor="card-cvv">CVV Code *</label>
+                                <label htmlFor="card-cvv">CVV *</label>
                                 <input required type="password" name="card-cvv" id="card-cvv" onChange={(e) => setCvvCode(e.target.value)} value={cvvCode}/>
                             </div>
                         </div>
                         <p className="response">{response}</p>
                         <div className="form-actions">
-                            <input type="submit" value="Add New Method" className="btn btn-more"/>
+                            <input type="submit" value="Adicionar" className="btn btn-more"/>
                         </div>
                     </form>
 
@@ -131,12 +127,12 @@ export default function NewPaymentMethod(){
                             <p className="card-number-reference">{cardNumber != "" ? cardNumber : "XXXX XXXX XXXX XXXX"}</p>
                             <div className="card-infos">
                                 <div className="info-box">
-                                    <p>Person Name</p>
-                                    <p className="info-box-info">{fullName != "" ? fullName : "Full Name"}</p>
+                                    <p>Nome Completo</p>
+                                    <p className="info-box-info">{fullName != "" ? fullName : "Nome Completo"}</p>
                                 </div>
                                 <div className="info-box">
-                                    <p>Expiration</p>
-                                    <p className="info-box-info">{expirationDate != "" ? expirationDate : "MM/YY"}</p>
+                                    <p>Expiração</p>
+                                    <p className="info-box-info">{expirationDate != "" ? expirationDate : "MM/AA"}</p>
                                 </div>
                             </div>
                         </div>

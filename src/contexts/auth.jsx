@@ -8,7 +8,6 @@ export const AuthProvider = ({children}) => {
     useEffect(() => {
         const userToken = localStorage.getItem("user-token");
         const usersStorage = localStorage.getItem("users-local-db");
-            console.log(userToken, usersStorage)
         if (userToken && usersStorage) {
           const hasUser = JSON.parse(usersStorage)?.filter(
             (user) => user.email === JSON.parse(userToken).email

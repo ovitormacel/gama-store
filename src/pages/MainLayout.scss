@@ -284,5 +284,43 @@ footer{
     #profile-nav-link{
         display: block;
     }
+
+    //FOOTER
+    footer{
+        background-color: #000;
+
+        .footer-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid $text-dark;
+            padding: 1em 0;
+
+            p{
+                color: $text-dark;
+            }
+            a{
+                color: $primary-color;
+                text-decoration: none;
+            }
+        }
+
+        .footer-bottom ul{
+            display: flex;
+            justify-content: space-around;
+            display: none;
+        }
+    }
 }
 
+//MOBILE
+@media screen and (max-width: 480px) {
+    //FOOTER
+    footer{
+        .footer-top{
+            p{
+                font-size: .8em;
+            }
+        }
+    }
+}

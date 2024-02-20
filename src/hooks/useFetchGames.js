@@ -1,4 +1,4 @@
-import {authorization} from "../utils/authorizationAPI.js"
+const authorization = import.meta.env.VITE_API_AUTHORIZATION;
 
 const generatePrice = () => {
     const random = Math.random()*350;

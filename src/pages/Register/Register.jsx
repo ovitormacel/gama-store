@@ -61,43 +61,43 @@ export default function Register() {
                 <div className="sections">
                     <section className="form-login-section">
                         <form onSubmit={handleLoginSubmit}>
-                            <h4 className="section-title">Create your account</h4>
+                            <h4 className="section-title">Criar nova conta</h4>
                             <div className="input-box">
-                                <label htmlFor="fullname">Name</label>
-                                <input type="text" name="fullname" id="fullname" placeholder="Enter your full name"
+                                <label htmlFor="fullname">Nome</label>
+                                <input type="text" name="fullname" id="fullname" placeholder="Nome Completo"
                                 onChange={(e) => setName(e.target.value)} value={name}/>
                             </div>
                             <div className="input-box">
-                                <label htmlFor="username">Username</label>
+                                <label htmlFor="username">Usuário</label>
                                 <input type="text" name="username" id="username" 
                                 onChange={(e) => setUsername(e.target.value)} value={username}/>
                             </div>
                             <div className="input-box">
                                 <label htmlFor="email">E-mail</label>
-                                <input type="email" name="email" id="email" placeholder="address@email.com"
+                                <input type="email" name="email" id="email" placeholder="endereco@email.com"
                                 onChange={(e) => setEmail(e.target.value)} value={email}/>
                             </div>
                             <div className="input-box">
-                                <label htmlFor="pass">Password</label>
+                                <label htmlFor="pass">Senha</label>
                                 <input type="password" name="pass" id="pass" 
                                 onChange={(e) => setPassword(e.target.value)} value={password}/>
                             </div>
                             <div className="input-box">
-                                <label htmlFor="pass-confirm">Confirm your password</label>
+                                <label htmlFor="pass-confirm">Confirmação de Senha</label>
                                 <input type="text" name="pass-confirm" id="pass-confirm" 
                                 onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword}/>
                             </div>
                             <p className="form-login-error">{response}</p>
                             <p className="form-login-success">{success}</p>
                             <div className="form-actions">
-                                <p className="dont-have-account">Already have an account? <Link to={"/login"} className="signup-link">Login</Link></p>
-                                <input type="submit" value="Sign up" className="btn btn-more"/>
+                                <p className="dont-have-account">Já tem uma conta? <Link to={"/login"} className="signup-link">Entrar</Link></p>
+                                <input type="submit" value="Registrar" className="btn btn-more"/>
                             </div>
                         </form>
                     </section>
 
                     <section className="login-about">
-                        <h1>Find your <span>favorite</span> games in a library with more than <span>800,000</span> options.</h1>         
+                        <h1>Encontre seus jogos <span>favoritos</span> em uma biblioteca com mais de <span>800.000</span> opções.</h1>
                     </section>
                 </div>
             </div>

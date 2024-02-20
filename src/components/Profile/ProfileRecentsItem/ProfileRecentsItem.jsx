@@ -9,8 +9,8 @@ export function ProfileRecentsItem({background, name, date, id}) {
             <div className="item-image" style={{backgroundImage : 'url("/src/assets/homiranha.jpeg")'}}></div>
             <div className="item-infos">
                 <p className="item-title">Spider Man Miles Morales</p>
-                <p className="item-date">Acquired in: February 9, 2023</p>
-                <Link to={'/product/25465'} className="btn btn-more"><FaEye /> Ver Mais</Link>
+                <p className="item-date">Adquirido em: 9 de Fevereiro, 2023</p>
+                <Link to={'/product/452634'} className="btn btn-more"><FaEye /> Ver Mais</Link>
             </div>
         </div>
     )

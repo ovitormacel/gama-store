@@ -42,27 +42,27 @@ export default function Login(){
                 <div className="sections">
                     <section className="form-login-section">
                         <form onSubmit={handleLoginSubmit}>
-                            <h4 className="section-title">Login to your account</h4>
+                            <h4 className="section-title">Entre na sua conta</h4>
                             <div className="input-box">
                                 <label htmlFor="email">E-mail</label>
                                 <input type="email" name="email" id="email" 
                                 onChange={(e) => setEmail(e.target.value)} value={email}/>
                             </div>
                             <div className="input-box">
-                                <label htmlFor="pass">Password</label>
+                                <label htmlFor="pass">Senha</label>
                                 <input type="password" name="pass" id="pass" 
                                 onChange={(e) => setPassword(e.target.value)} value={password}/>
                             </div>
                             <p className="form-login-error">{response}</p>
                             <div className="form-actions">
-                                <p className="dont-have-account">Don't have an account? <Link to={"/register"} className="signup-link">Sign up</Link></p>
-                                <input type="submit" value="Login" className="btn btn-more"/>
+                                <p className="dont-have-account">Não tem uma conta? <Link to={"/register"} className="signup-link">Registrar</Link></p>
+                                <input type="submit" value="Entrar" className="btn btn-more"/>
                             </div>
                         </form>
                     </section>
 
                     <section className="login-about">
-                        <h1>Find your <span>favorite</span> games in a library with more than <span>800,000</span> options.</h1>         
+                        <h1>Encontre seus jogos <span>favoritos</span> em uma biblioteca com mais de <span>800.000</span> opções.</h1>         
                     </section>
                 </div>
             </div>

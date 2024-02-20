@@ -52,8 +52,8 @@ export default function UserProfile() {
                     </div>
                 </div>
                 <nav className="profile-header-nav">
-                    <Link to={'/profile'} className="profile-header-nav-btn active">Profile</Link>
-                    <Link to={'settings'} className="profile-header-nav-btn">Settings</Link>
+                    <Link to={'/profile'} className="profile-header-nav-btn active">Perfil</Link>
+                    <Link to={'settings'} className="profile-header-nav-btn">Ajustes</Link>
                 </nav>
             </section>
 

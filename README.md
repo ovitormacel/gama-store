@@ -1,4 +1,4 @@
-#Projeto Gama Store
+# Projeto Gama Store
 
 Gama Store é um ecommerce **fictício** de games desenvolvido a partir do consumo da API **RAWG**, para o retorno de informações dos jogos disponíveis.
 

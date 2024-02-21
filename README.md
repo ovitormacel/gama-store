@@ -13,7 +13,7 @@ Link do Projeto:
 
 <hr/>
 
-## 🌱 | Funcionalidades
+## 🌱 Funcionalidades
 * Página de Destaques.
 * Pesquisa de Games.
 * Sistema de Autenticação utilizando LocalStorage. 
@@ -23,7 +23,7 @@ Link do Projeto:
 
 <hr>
 
-## 👽 | Tecnologias Utilizadas
+## 👽 Tecnologias Utilizadas
 
 * React Js
 * Sass
@@ -31,11 +31,11 @@ Link do Projeto:
 
 <hr>
 
-## 🖥 | Instalação em Máquina Local
+## 🖥 Instalação em Máquina Local
 ### 1. Clone este repositório.
 
 ~~~bash
-git clone https://github.com/ovitormacel/gamastore.git
+git clone https://github.com/ovitormacel/gama-store.git
 ~~~
 
 ### 2. No diretório do repositório, instale as dependências.
@@ -54,12 +54,10 @@ VITE_API_AUTHORIZATION = 'SuaChaveDeAPI'
 ~~~
 
 Agora o Projeto está pronto para funcionar 😎
-
-# 
+ 
 <hr>
-# 
 
-## 💿 | Iniciando o Projeto
+## 💿 Iniciando o Projeto
 
 Após Instalado e Configurado, basta utilizar o seguinte comando para iniciar o projeto localmente.
 
@@ -72,10 +70,12 @@ Agora acesse o link retornado pelo terminal e prontinho. 😊
 <hr>
 
 
-## ☎️ | Contato
+## ☎️ Contato
 
 Em caso de problemas, dúvidas ou interesse em futuros projetos entre em contato por:
 
 E-mail: contato@ovitormacel.com
 
 Linkedin: <https://linkedin.com/in/ovitormacel>
+
+Obrigado por chegar até aqui. 🌹

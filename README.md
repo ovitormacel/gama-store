@@ -8,9 +8,12 @@ O projeto possui **destaques**, **pesquisa** de games, sistema de **autenticaç�
 
 Espero que gostem. 🌹
 
-<hr>
-Link do Projeto: <https://gama-store-eight.vercel.app>
-<hr> 
+<hr/>
+
+Link do Projeto:
+<https://gama-store-eight.vercel.app>
+
+<hr/> 
 
 ## 👽 Tecnologias Utilizadas
 

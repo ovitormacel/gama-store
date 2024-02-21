@@ -9,7 +9,7 @@ Espero que gostem. 🌹
 <hr/>
 
 Link do Projeto:
-<https://gama-store-eight.vercel.app>
+<a href="https://gama-store-eight.vercel.app" target="_blank">Visualizar Gama Store</a>
 
 <hr/>
 

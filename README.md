@@ -13,7 +13,7 @@ Link do Projeto:
 [Visualizar Gama Store](https://gama-store-eight.vercel.app)
 <hr> 
 
-##👽 Tecnologias Utilizadas
+## 👽 Tecnologias Utilizadas
 
 * React Js
 * Sass
@@ -21,26 +21,26 @@ Link do Projeto:
 
 <hr>
 
-##🖥 Instalação em Máquina Local
-###1. Clone este repositório.
+## 🖥 Instalação em Máquina Local
+### 1. Clone este repositório.
 
 ~~~bash
 git clone https://github.com/ovitormacel/gamastore.git
 ~~~
 
-###2. No diretório do repositório, instale as dependências.
+### 2. No diretório do repositório, instale as dependências.
 
 ~~~bash
 npm install
 ~~~
 
-###3. Entre no site da RAWG e obtenha uma chave de API.
+### 3. Entre no site da RAWG e obtenha uma chave de API.
 <https://rawg.io/apidocs>
 
-###4. Após obter a chave, crie um arquivo *.env* na raiz do projeto e insira o seguinte código
+### 4. Após obter a chave, crie um arquivo *.env* na raiz do projeto e insira o seguinte código
 
 ~~~javascript
-REACT_APP_RAWG_API_KEY=SuaChaveDeAPIAqui 
+VITE_API_AUTHORIZATION = 'SuaChaveDeAPI'
 ~~~
 
 Agora o Projeto está pronto para funcionar 😎
@@ -49,11 +49,11 @@ Agora o Projeto está pronto para funcionar 😎
 <hr>
 # 
 
-##💿 Iniciando o Projeto
+## 💿 Iniciando o Projeto
 
 Após instalado e Configurado, basta utilizar o seguinte comando para iniciar o projeto localmente.
 
-~~~
+~~~bash
 npm run dev
 ~~~
 
@@ -62,7 +62,7 @@ Agora acesse o link retornado pelo terminal e prontinho. 😊
 <hr>
 
 
-##☎️ Contato
+## ☎️ Contato
 
 Em caso de problemas, dúvidas ou interesse em futuros projetos entre em contato por:
 
